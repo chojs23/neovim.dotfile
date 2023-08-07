@@ -1,5 +1,14 @@
 return {
   "neovim/nvim-lspconfig",
+  init = function()
+    local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    -- change a keymap
+    keys[#keys + 1] = { "K", "5k" }
+    -- disable a keymap
+    -- keys[#keys + 1] = { "K", false }
+    -- add a keymap
+    -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
+  end,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
@@ -33,7 +42,7 @@ return {
     -- Be aware that you also will need to properly configure your LSP server to
     -- provide the inlay hints.
     inlay_hints = {
-      enabled = false,
+      enabled = true,
     },
     -- add any global capabilities here
     capabilities = {},
@@ -58,7 +67,9 @@ return {
         -- Use this to add any additional keymaps
         -- for specific lsp servers
         ---@type LazyKeys[]
-        -- keys = {},
+        keys = {
+          { "H", vim.lsp.buf.hover, desc = "Hover" },
+        },
         settings = {
           Lua = {
             workspace = {
