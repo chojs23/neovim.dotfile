@@ -3,9 +3,9 @@ return {
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
     -- change a keymap
-    keys[#keys + 1] = { "K", "5k" }
+    -- keys[#keys + 1] = { "K", "5k" },
     -- disable a keymap
-    -- keys[#keys + 1] = { "K", false }
+    -- keys[#keys + 1] = { "H", false }
     -- add a keymap
     -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
   end,
@@ -67,9 +67,7 @@ return {
         -- Use this to add any additional keymaps
         -- for specific lsp servers
         ---@type LazyKeys[]
-        keys = {
-          { "H", vim.lsp.buf.hover, desc = "Hover" },
-        },
+        keys = {},
         settings = {
           Lua = {
             workspace = {
