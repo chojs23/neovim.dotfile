@@ -26,8 +26,8 @@ map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move block down", remap = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move block up", remap = true })
 map("i", "jj", "<Esc>", { remap = true })
 
-map("n", "J", "5j", { remap = true })
-map("n", "K", "5k", { remap = true })
+-- map("n", "J", "5j", { remap = true })
+-- map("n", "K", "5k", { remap = true })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
