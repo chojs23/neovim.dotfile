@@ -48,7 +48,7 @@ return {
       "prisma",
       "sql",
     },
-    sync_install = false,
+    auto_install = true,
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -58,6 +58,13 @@ return {
         node_decremental = "<bs>",
       },
     },
+    opts = function(_, opts)
+      -- add tsx and treesitter
+      vim.list_extend(opts.ensure_installed, {
+        "tsx",
+        "typescript",
+      })
+    end,
   },
   ---@param opts TSConfig
   config = function(_, opts)

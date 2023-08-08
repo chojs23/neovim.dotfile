@@ -21,6 +21,7 @@ return {
         return require("lazyvim.util").has("nvim-cmp")
       end,
     },
+    { "jose-elias-alvarez/typescript.nvim" },
   },
   ---@class PluginLspOpts
   opts = {
@@ -79,16 +80,63 @@ return {
           },
         },
       },
+      ---@type lspconfig.options.tsserver
+      tsserver = {
+        keys = {
+          { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
+          { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
+        },
+        on_attach = function(client, bufnr)
+          vim.lsp.buf.inlay_hint(bufnr, true)
+        end,
+        settings = {
+          typescript = {
+            format = {
+              indentSize = vim.o.shiftwidth,
+              convertTabsToSpaces = vim.o.expandtab,
+              tabSize = vim.o.tabstop,
+            },
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+          javascript = {
+            format = {
+              indentSize = vim.o.shiftwidth,
+              convertTabsToSpaces = vim.o.expandtab,
+              tabSize = vim.o.tabstop,
+            },
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+          completion = {
+            completeFunctionCalls = true,
+          },
+        },
+      },
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
     ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
     setup = {
       -- example to setup with typescript.nvim
-      -- tsserver = function(_, opts)
-      --   require("typescript").setup({ server = opts })
-      --   return true
-      -- end,
+      tsserver = function(_, opts)
+        require("typescript").setup({ server = opts })
+        return true
+      end,
       -- Specify * to use this function as a fallback for any server
       -- ["*"] = function(server, opts) end,
     },
@@ -149,6 +197,21 @@ return {
     end
 
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+
+    -- Show line diagnostics automatically in hover window
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = "rounded",
+          source = "always",
+          prefix = " ",
+          scope = "cursor",
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end,
+    })
 
     local servers = opts.servers
     local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
