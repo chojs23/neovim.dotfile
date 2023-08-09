@@ -17,12 +17,22 @@ return {
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-emoji",
+      {
+        "Saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        config = true,
+      },
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
       opts.sources =
-        cmp.config.sources(vim.list_extend(opts.sources, { { name = "copilot", group_idx = 2 }, { name = "emoji" } }))
+        cmp.config.sources(vim.list_extend(
+          opts.sources,
+          { { name = "copilot", group_idx = 2 }, { name = "emoji" }, {
+            name = "crates",
+          } }
+        ))
 
       local has_words_before = function()
         unpack = unpack or table.unpack
