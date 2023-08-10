@@ -36,6 +36,7 @@ return {
         comparators = {
           deprioritize_snippet,
           deprioritize_text,
+          require("copilot_cmp.comparators").prioritize,
           -- the rest of the comparators are pretty much the defaults
           cmp.config.compare.offset,
           cmp.config.compare.exact,
