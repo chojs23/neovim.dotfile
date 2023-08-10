@@ -7,4 +7,7 @@ return {
       colorscheme = "moonfly",
     },
   },
+  {
+    "mrjones2014/nvim-ts-rainbow",
+  },
 }
