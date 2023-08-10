@@ -36,6 +36,7 @@ return {
         { name = "luasnip" },
       }))
 
+      -- cmp priority
       local types = require("cmp.types")
       local function deprioritize_snippet(entry1, entry2)
         if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
@@ -45,10 +46,19 @@ return {
           return true
         end
       end
+      local function deprioritize_text(entry1, entry2)
+        if entry1:get_kind() == types.lsp.CompletionItemKind.Text then
+          return false
+        end
+        if entry2:get_kind() == types.lsp.CompletionItemKind.Text then
+          return true
+        end
+      end
       opts.sorting = {
         priority_weight = 2,
         comparators = {
           deprioritize_snippet,
+          deprioritize_text,
           -- the rest of the comparators are pretty much the defaults
           cmp.config.compare.offset,
           cmp.config.compare.exact,
@@ -63,6 +73,7 @@ return {
         },
       }
 
+      -- SuperTab
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
