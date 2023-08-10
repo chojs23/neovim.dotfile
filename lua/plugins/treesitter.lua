@@ -20,6 +20,7 @@ return {
         load_textobjects = true
       end,
     },
+    { "Hiphish/nvim-ts-rainbow2" },
   },
   cmd = { "TSUpdateSync" },
   keys = {
@@ -28,8 +29,23 @@ return {
   },
   ---@type TSConfig
   opts = {
-    highlight = { enable = true },
+    highlight = {
+      enable = true, -- false will disable the whole extension
+      disable = { "" }, -- list of language that will be disabled
+      additional_vim_regex_highlighting = true,
+    },
     indent = { enable = true },
+    rainbow = {
+      enable = true,
+      -- list of languages you want to disable the plugin for
+      -- disable = { "jsx", "cpp" },
+      -- Which query to use for finding delimiters
+      query = "rainbow-parens",
+      -- Highlight the entire buffer all at once
+      strategy = require("ts-rainbow.strategy.global"),
+      -- Do not enable for files with more than n lines
+      max_file_lines = 3000,
+    },
     ensure_installed = {
       "bash",
       "c",

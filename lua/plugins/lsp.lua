@@ -22,7 +22,7 @@ return {
       end,
     },
     { "jose-elias-alvarez/typescript.nvim" },
-    { "lvimuser/lsp-inlayhints.nvim" },
+    -- { "lvimuser/lsp-inlayhints.nvim" },
   },
   ---@class PluginLspOpts
   opts = {
@@ -217,7 +217,7 @@ return {
     -- setup formatting and keymaps
     Util.on_attach(function(client, buffer)
       require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
-      require("lsp-inlayhints").on_attach(client, buffer)
+      -- require("lsp-inlayhints").on_attach(client, buffer)
     end)
 
     local register_capability = vim.lsp.handlers["client/registerCapability"]

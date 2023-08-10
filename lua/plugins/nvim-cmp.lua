@@ -32,8 +32,6 @@ return {
         {
           name = "crates",
         },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
       }))
 
       -- cmp priority
