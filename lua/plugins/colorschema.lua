@@ -14,6 +14,6 @@ return {
     },
   },
   {
-    "mrjones2014/nvim-ts-rainbow",
+    "HiPhish/nvim-ts-rainbow2",
   },
 }
