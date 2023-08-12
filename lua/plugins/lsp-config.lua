@@ -64,6 +64,16 @@ return {
           },
         },
       },
+      -- rust_analyzer = {
+      --   settings = {
+      --     ["rust-analyzer"] = {
+      --       inlay_hints = {
+      --         closureCaptureHints = true,
+      --         parameterHints = true,
+      --       },
+      --     },
+      --   },
+      -- },
     },
     setup = {
       eslint = function()
