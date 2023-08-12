@@ -2,9 +2,13 @@ vim.cmd([[
    augroup ColorSchemeOverride
    au!
    au ColorScheme *
-   \ highlight! Comment cterm=italic gui=italic guifg=#a3a3a3
-\| highlight! Normal guifg=#d6d6d6
-\|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#a3a3a3
+   \ highlight! Comment cterm=italic gui=italic guifg=#8a8a8a
+\|  highlight! Normal guifg=#d6d6d6
+\|  highlight! @variable guifg=#bababa
+\|  highlight! @constant guifg=#bababa
+\|  highlight! @parameter guifg=#FC9A41
+\|  highlight! @property guifg=#ef596f
+\|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#8a8a8a
 \|  highlight! Visual guibg=#424242
 \|  highlight! LspInlayHint guifg=#474747
 \|  highlight! Pmenu guibg=#424242
@@ -17,13 +21,12 @@ vim.api.nvim_exec_autocmds("ColorScheme", {})
 
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   callback = function()
-    vim.lsp.inlay_hint(0, false)
+    vim.lsp.inlay_hint(0, true)
   end,
 })
-
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   callback = function()
-    vim.lsp.inlay_hint(0, true)
+    vim.lsp.inlay_hint(0, false)
   end,
 })
 vim.diagnostic.config({
