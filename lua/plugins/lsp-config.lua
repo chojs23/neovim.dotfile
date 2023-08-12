@@ -1,9 +1,13 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-    -- Be aware that you also will need to properly configure your LSP server to
-    -- provide the inlay hints.
+    diagnostics = {
+      update_in_insert = false,
+      virtual_text = {
+        prefix = "icons",
+      },
+      severity_sort = true,
+    },
     inlay_hints = {
       enabled = true,
     },
@@ -19,9 +23,9 @@ return {
         },
       },
       tsserver = {
-        on_attach = function(client, bufnr)
-          vim.lsp.inlay_hint(bufnr, true)
-        end,
+        -- on_attach = function(client, bufnr)
+        --   vim.lsp.inlay_hint(bufnr, true)
+        -- end,
         settings = {
           typescript = {
             format = {
