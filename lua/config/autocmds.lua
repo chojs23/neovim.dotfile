@@ -2,7 +2,7 @@ vim.cmd([[
    augroup ColorSchemeOverride
    au!
    au ColorScheme *
-   \ highlight! Comment cterm=italic gui=italic guifg=#8a8a8a
+   \ highlight! Comment cterm=italic gui=italic guifg=#858585
 \|  highlight! Normal guifg=#d6d6d6
 \|  highlight! @variable guifg=#bababa
 \|  highlight! @constant guifg=#bababa
@@ -11,9 +11,9 @@ vim.cmd([[
 \|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#8a8a8a
 \|  highlight! Visual guibg=#424242
 \|  highlight! LspInlayHint guifg=#474747
-\|  highlight! Pmenu guibg=#424242
+\|  highlight! Pmenu guibg=#1c1c1c
 \|  highlight! PmenuThumb guibg=#bdbbbb
-\|  highlight! PmenuSel guibg=#222222
+\|  highlight! PmenuSel guibg=#003000
 \|  highlight! NeoTreeCursorLine guibg=#303030
 \|  highlight! NeoTreeDotfile guibg=#7a7a7a
 \|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
