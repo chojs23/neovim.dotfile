@@ -9,9 +9,18 @@ return {
     },
     servers = {
       eslint = {},
+      lua_ls = {
+        settings = {
+          Lua = {
+            hint = {
+              enable = true,
+            },
+          },
+        },
+      },
       tsserver = {
         on_attach = function(client, bufnr)
-          vim.lsp.buf.inlay_hint(bufnr, true)
+          vim.lsp.inlay_hint(bufnr, true)
         end,
         settings = {
           typescript = {
