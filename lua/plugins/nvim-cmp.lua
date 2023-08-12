@@ -28,10 +28,10 @@ return {
       opts.sorting = {
         priority_weight = 2,
         comparators = {
+          require("copilot_cmp.comparators").prioritize,
           deprio(types.lsp.CompletionItemKind.Snippet),
           deprio(types.lsp.CompletionItemKind.Text),
           deprio(types.lsp.CompletionItemKind.Keyword),
-          require("copilot_cmp.comparators").prioritize,
           -- the rest of the comparators are pretty much the defaults
           cmp.config.compare.offset,
           cmp.config.compare.exact,
