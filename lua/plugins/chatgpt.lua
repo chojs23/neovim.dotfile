@@ -1,6 +1,6 @@
 return {
   "jackMort/ChatGPT.nvim",
-  commit = "2107f7037c775bf0b9bff9015eed68929fcf493e",
+  commit = "a6368d71dc5d320e271c0911a9c1e9e9d2502612",
   event = "VeryLazy",
   config = function()
     require("chatgpt").setup()
