@@ -15,7 +15,9 @@ vim.cmd([[
 \|  highlight! PmenuThumb guibg=#bdbbbb
 \|  highlight! PmenuSel guibg=#222222
 \|  highlight! NeoTreeCursorLine guibg=#303030
+\|  highlight! NeoTreeDotfile guibg=#7a7a7a
 \|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
+\|  highlight! NeoTreeGitUntracked guifg=#7a7a7a
 ]])
 vim.api.nvim_exec_autocmds("ColorScheme", {})
 
