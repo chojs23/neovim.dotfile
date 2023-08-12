@@ -15,6 +15,17 @@ vim.cmd([[
 ]])
 vim.api.nvim_exec_autocmds("ColorScheme", {})
 
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  callback = function()
+    vim.lsp.inlay_hint(0, false)
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  callback = function()
+    vim.lsp.inlay_hint(0, true)
+  end,
+})
 vim.diagnostic.config({
   update_in_insert = false,
 })
