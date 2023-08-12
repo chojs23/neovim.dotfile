@@ -19,19 +19,19 @@ vim.cmd([[
 ]])
 vim.api.nvim_exec_autocmds("ColorScheme", {})
 
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-  callback = function()
-    vim.lsp.inlay_hint(0, true)
-  end,
-})
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-  callback = function()
-    vim.lsp.inlay_hint(0, false)
-  end,
-})
-vim.diagnostic.config({
-  update_in_insert = false,
-})
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  update_in_insert = false,
-})
+-- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+--   callback = function()
+--     vim.lsp.inlay_hint(0, true)
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+--   callback = function()
+--     vim.lsp.inlay_hint(0, false)
+--   end,
+-- })
+-- vim.diagnostic.config({
+--   update_in_insert = false,
+-- })
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--   update_in_insert = false,
+-- })
