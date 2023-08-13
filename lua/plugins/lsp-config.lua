@@ -2,7 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     diagnostics = {
-      update_in_insert = true,
+      update_in_insert = false,
       virtual_text = {
         prefix = "icons",
       },
