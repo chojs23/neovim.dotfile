@@ -4,10 +4,28 @@ return {
     cmd = "Copilot",
     build = ":Copilot auth",
     event = "LspAttach",
-    lazy = false,
+    lazy = true,
     opts = {
-      suggestion = { enabled = true, auto_trigger = false },
-      panel = { enabled = true },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-s>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-n>",
+          prev = "<C-p>",
+          dismiss = "<C-]>",
+        },
+      },
+      panel = {
+        enabled = true,
+        auto_refresh = true,
+        layout = {
+          position = "right",
+          ratio = 0.3,
+        },
+      },
       filetypes = {
         markdown = true,
         help = true,
@@ -17,7 +35,8 @@ return {
   {
     "zbirenbaum/copilot-cmp",
     dependencies = "copilot.lua",
-    lazy = false,
+    lazy = true,
+    enabled = false,
     event = "LspAttach",
     opts = {},
     config = function(_, opts)
@@ -27,7 +46,6 @@ return {
       -- fixes lazy-loading issues with the copilot cmp source
       require("lazyvim.util").on_attach(function(client)
         if client.name == "copilot" then
-          copilot_cmp.setup({ event = "LspAttach" })
           copilot_cmp._on_insert_enter({})
         end
       end)
