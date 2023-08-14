@@ -7,10 +7,10 @@ vim.cmd([[
 \|  highlight! @variable guifg=#bababa
 \|  highlight! @constant guifg=#bababa
 \|  highlight! @parameter guifg=#FC9A41
-\|  highlight! @property guifg=#ef596f
+\|  highlight! @property guifg=#f5454a
 \|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#8a8a8a
 \|  highlight! Visual guibg=#424242
-\|  highlight! LspInlayHint guifg=#474747
+\|  highlight! LspInlayHint guifg=#525252
 \|  highlight! CopilotSuggestion guifg=#969696
 \|  highlight! Pmenu guibg=#1c1c1c
 \|  highlight! PmenuThumb guibg=#bdbbbb
