@@ -53,3 +53,7 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- Prevent LSP override colorscheme highlight groups
+-- https://github.com/NvChad/NvChad/issues/1907
+-- vim.highlight.priorities.semantic_tokens = 95
