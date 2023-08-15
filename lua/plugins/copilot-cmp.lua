@@ -10,7 +10,7 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<C-s>",
+          accept = "<C-CR>",
           accept_word = false,
           accept_line = false,
           next = "<C-n>",
