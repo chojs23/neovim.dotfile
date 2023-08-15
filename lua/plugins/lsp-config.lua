@@ -9,30 +9,16 @@ return {
       severity_sort = true,
     },
     capabilities = {
-      workspace = {
-        applyEdit = true,
-        configuration = true,
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
-          relativePatternSupport = true,
+      textDocument = {
+        completion = {
+          editsNearCursor = true,
         },
-        inlayHint = {
-          refreshSupport = true,
-        },
-        semanticTokens = vim.NIL,
-        symbol = {
-          dynamicRegistration = true,
-          symbolKind = {
-            valueSet = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 },
-          },
-        },
-        workspaceEdit = {
-          resourceOperations = { "rename", "create", "delete" },
-        },
-        workspaceFolders = true,
       },
+      general = {
+        positionEncodings = { "utf-16" },
+      },
+      offsetEncoding = { "utf-16" },
     },
-
     inlay_hints = {
       enabled = true,
     },
@@ -90,6 +76,12 @@ return {
         },
       },
       -- rust_analyzer = {
+      --   capabilities = {
+      --     general = {
+      --       positionEncodings = { "utf-16" },
+      --     },
+      --     offsetEncoding = "utf-16",
+      --   },
       --   settings = {
       --     ["rust-analyzer"] = {
       --       inlay_hints = {

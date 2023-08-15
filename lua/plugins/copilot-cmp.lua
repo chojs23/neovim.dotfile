@@ -1,36 +1,37 @@
 return {
-  { "github/copilot.vim" },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   build = ":Copilot auth",
-  --   opts = {
-  --     suggestion = {
-  --       enabled = true,
-  --       auto_trigger = true,
-  --       keymap = {
-  --         accept = "<C-CR>",
-  --         accept_word = false,
-  --         accept_line = false,
-  --         next = "<C-n>",
-  --         prev = "<C-p>",
-  --         dismiss = "<C-]>",
-  --       },
-  --     },
-  --     panel = {
-  --       enabled = true,
-  --       auto_refresh = true,
-  --       layout = {
-  --         position = "right",
-  --         ratio = 0.3,
-  --       },
-  --     },
-  --     filetypes = {
-  --       markdown = true,
-  --       help = true,
-  --     },
-  --   },
-  -- },
+  -- { "github/copilot.vim" },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-CR>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-n>",
+          prev = "<C-p>",
+          dismiss = "<C-]>",
+        },
+      },
+      panel = {
+        enabled = true,
+        auto_refresh = true,
+        layout = {
+          position = "right",
+          ratio = 0.3,
+        },
+      },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+      copilot_node_command = "/Users/neo/.nvm/versions/node/v16.15.0/bin/node",
+    },
+  },
   -- {
   --   "zbirenbaum/copilot-cmp",
   --   dependencies = "copilot.lua",
