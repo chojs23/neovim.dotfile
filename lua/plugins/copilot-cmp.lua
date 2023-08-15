@@ -3,6 +3,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    event = "LspAttach",
     build = ":Copilot auth",
     opts = {
       suggestion = {
