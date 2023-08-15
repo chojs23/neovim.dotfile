@@ -43,7 +43,8 @@ for newgroup, oldgroup in pairs(links) do
   vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
 end
 
-vim.g.copilot_node_command = "~/.nvm/versions/node/v16.15.0/bin/node"
+-- if using copilot.vim
+-- vim.g.copilot_node_command = "~/.nvm/versions/node/v16.15.0/bin/node"
 
 -- vim.cmd([[highlight! Comment cterm=italic gui=italic guifg=#858585]])
 -- vim.cmd([[highlight! Normal guifg=#d6d6d6]])
