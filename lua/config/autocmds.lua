@@ -4,8 +4,8 @@ vim.cmd([[
    au ColorScheme *
    \ highlight! Comment cterm=italic gui=italic guifg=#858585
 \|  highlight! Normal guifg=#d6d6d6
-\|  highlight! @variable guifg=#bababa
-\|  highlight! @constant guifg=#bababa
+\|  highlight! @variable guifg=#c0c0c0
+\|  highlight! @constant guifg=#c0c0c0
 \|  highlight! @parameter guifg=#FC9A41
 \|  highlight! @property guifg=#f5454a
 \|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#8a8a8a

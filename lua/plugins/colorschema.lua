@@ -1,13 +1,14 @@
 return {
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000, enabled = false },
-  {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000,
-    opts = {
-      transparency = true,
-    },
-    enabled = false,
-  },
+  -- { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000, enabled = false },
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000,
+  --   opts = {
+  --     transparency = true,
+  --   },
+  --   enabled = false,
+  -- },
+  { "ap/vim-css-color" },
   {
     "folke/tokyonight.nvim",
     priority = 1000,
@@ -30,13 +31,13 @@ return {
         colors.border = "#e0e0e0"
         colors.git = {
           add = "#24bf55",
-          change = "#2453bf",
+          change = "#FFCB6B",
           delete = "#ba1a37",
           ignore = "#545c7e",
         }
         colors.gitSigns = {
           add = "#24bf55",
-          change = "#a87d32",
+          change = "#FFCB6B",
           delete = "#ba1a37",
         }
       end,
@@ -46,6 +47,15 @@ return {
         }
         hl.CursorLineNr = {
           fg = colors.dark5,
+        }
+        hl.NeoTreeGitAdded = {
+          fg = "#24bf55",
+        }
+        hl.NeoTreeGitDeleted = {
+          fg = "#ba1a37",
+        }
+        hl.NeoTreeGitModified = {
+          fg = "#FFCB6B",
         }
       end,
     },
