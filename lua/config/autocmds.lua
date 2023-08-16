@@ -10,19 +10,20 @@ vim.cmd([[
 \|  highlight! @property guifg=#f5454a
 \|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#8a8a8a
 \|  highlight! Visual guibg=#424242
-\|  highlight! LspInlayHint guifg=#525252
+\|  highlight! LspInlayHint guifg=#575757 guibg=#151721
 \|  highlight! CopilotSuggestion guifg=#969696
-\|  highlight! Pmenu guibg=#1c1c1c
-\|  highlight! PmenuThumb guibg=#bdbbbb
-\|  highlight! PmenuSel guibg=#003000
-\|  highlight! NeoTreeCursorLine guibg=#303030
-\|  highlight! NeoTreeDotfile guibg=#7a7a7a
-\|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
-\|  highlight! NeoTreeGitUntracked guifg=#7a7a7a
+" \|  highlight! Pmenu guibg=#1c1c1c
+" \|  highlight! PmenuThumb guibg=#bdbbbb
+" \|  highlight! PmenuSel guibg=#003000
+" \|  highlight! NeoTreeCursorLine guibg=#303030
+" \|  highlight! NeoTreeDotfile guibg=#7a7a7a
+" \|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
+" \|  highlight! NeoTreeGitUntracked guifg=#7a7a7a
 ]])
 vim.api.nvim_exec_autocmds("ColorScheme", {})
 
 -- https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#what-is-semantic-highlighting
+
 local links = {
   ["@lsp.type.namespace"] = "@namespace",
   ["@lsp.type.type"] = "@type",
