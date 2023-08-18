@@ -13,7 +13,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      term_colors = true,
+      term_colors = false,
       transparent_background = false,
       styles = {
         comments = {},
