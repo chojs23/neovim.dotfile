@@ -4,19 +4,40 @@ return {
     build = ":TSUpdate",
     opts = {
       rainbow = { enable = true },
-      opts = function(_, opts)
-        opts.ignore_install = { "help" }
-        opts.sync_install = false
-
-        if type(opts.ensure_installed) == "table" then
-          vim.list_extend(opts.ensure_installed, {
-            "git_config",
-            "jsdoc",
-            "vimdoc",
-            "prisma",
-          })
-        end
-      end,
+      highlight = { enable = true },
+      indent = { enable = true },
+      ensure_installed = {
+        "bash",
+        "c",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "regex",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "yaml",
+        "prisma",
+        "sql",
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      },
     },
   },
   {
