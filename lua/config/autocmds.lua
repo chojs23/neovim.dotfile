@@ -12,6 +12,7 @@ vim.cmd([[
 \|  highlight! Visual guibg=#424242
 \|  highlight! LspInlayHint guifg=#636363 guibg=#151721
 \|  highlight! CopilotSuggestion guifg=#969696
+\|  highlight! TroubleNormal guibg=#151515
 " \|  highlight! Pmenu guibg=#1c1c1c
 " \|  highlight! PmenuThumb guibg=#bdbbbb
 " \|  highlight! PmenuSel guibg=#003000

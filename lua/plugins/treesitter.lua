@@ -1,5 +1,8 @@
 return {
   {
+    "hiphish/rainbow-delimiters.nvim",
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     opts = {
@@ -28,6 +31,10 @@ return {
         "yaml",
         "prisma",
         "sql",
+        "ron",
+        "rust",
+        "toml",
+        "php",
       },
       incremental_selection = {
         enable = true,
