@@ -41,8 +41,8 @@ return {
             return not vim.b[buf].lazyterm_cmd
           end,
         },
-        "Trouble",
-        { ft = "qf", title = "QuickFix" },
+        { ft = "Trouble", size = { height = 0.4 } },
+        { ft = "qf", title = "QuickFix", size = { height = 0.4 } },
         {
           ft = "help",
           size = { height = 30 },
