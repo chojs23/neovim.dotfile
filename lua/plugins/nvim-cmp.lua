@@ -11,7 +11,8 @@ return {
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
-      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+      opts.sources =
+        cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" }, { name = "copilot", group_index = 2 } }))
 
       -- cmp priority
       local types = require("cmp.types")
@@ -28,13 +29,12 @@ return {
       opts.sorting = {
         priority_weight = 2,
         comparators = {
-          -- require("copilot_cmp.comparators").prioritize,
-          -- require("copilot_cmp.comparators").score,
+          require("copilot_cmp.comparators").prioritize,
+          require("copilot_cmp.comparators").score,
           deprio(types.lsp.CompletionItemKind.Snippet),
           deprio(types.lsp.CompletionItemKind.Text),
           deprio(types.lsp.CompletionItemKind.Keyword),
 
-          -- the rest of the comparators are pretty much the defaults
           cmp.config.compare.offset,
           cmp.config.compare.exact,
           cmp.config.compare.scopes,
