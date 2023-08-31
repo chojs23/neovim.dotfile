@@ -11,6 +11,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
+    { import = "lazyvim.plugins.extras.vscode" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
