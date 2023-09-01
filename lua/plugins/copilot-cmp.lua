@@ -3,28 +3,28 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    -- event = "LspAttach",
+    event = "LspAttach",
     build = ":Copilot auth",
     opts = {
       suggestion = {
-        enabled = false,
-        -- auto_trigger = true,
-        -- keymap = {
-        --   accept = "<C-CR>",
-        --   accept_word = false,
-        --   accept_line = false,
-        --   next = "<C-n>",
-        --   prev = "<C-p>",
-        --   dismiss = "<C-]>",
-        -- },
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-CR>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-n>",
+          prev = "<C-p>",
+          dismiss = "<C-]>",
+        },
       },
       panel = {
-        enabled = false,
-        -- auto_refresh = true,
-        -- layout = {
-        --   position = "right",
-        --   ratio = 0.3,
-        -- },
+        enabled = true,
+        auto_refresh = true,
+        layout = {
+          position = "right",
+          ratio = 0.3,
+        },
       },
       filetypes = {
         markdown = true,
@@ -36,7 +36,7 @@ return {
   {
     "zbirenbaum/copilot-cmp",
     dependencies = "copilot.lua",
-    -- enabled = false,
+    enabled = false,
     opts = {},
     config = function(_, opts)
       local copilot_cmp = require("copilot_cmp")
