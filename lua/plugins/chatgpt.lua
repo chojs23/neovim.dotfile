@@ -1,5 +1,6 @@
 return {
   "jackMort/ChatGPT.nvim",
+  enabled = false,
   commit = "a6368d71dc5d320e271c0911a9c1e9e9d2502612",
   event = "VeryLazy",
   config = function()
