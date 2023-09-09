@@ -14,7 +14,7 @@ return {
     name = "catppuccin",
     opts = {
       term_colors = false,
-      transparent_background = false,
+      transparent_background = true,
       styles = {
         comments = {},
         conditionals = {},
