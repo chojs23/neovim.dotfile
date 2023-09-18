@@ -2,6 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     diagnostics = {
+      underline = true,
       update_in_insert = false,
       virtual_text = {
         prefix = "icons",
@@ -21,7 +22,7 @@ return {
     },
     flags = {
       allow_incremental_sync = false,
-      debounce_text_changes = 500,
+      debounce_text_changes = 150,
     },
     inlay_hints = {
       enabled = true,
@@ -37,6 +38,8 @@ return {
           },
         },
       },
+      dockerls = {},
+      docker_compose_language_service = {},
       tsserver = {
         -- on_attach = function(client, bufnr)
         --   vim.lsp.inlay_hint(bufnr, true)

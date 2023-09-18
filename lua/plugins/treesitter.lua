@@ -35,6 +35,7 @@ return {
         "rust",
         "toml",
         "php",
+        "dockerfile",
       },
       incremental_selection = {
         enable = true,

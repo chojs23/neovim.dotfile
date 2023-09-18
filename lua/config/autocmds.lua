@@ -5,6 +5,7 @@ vim.cmd([[
    \ highlight! Comment cterm=italic gui=italic guifg=#858585
 \|  highlight! Normal guifg=#d6d6d6
 \|  highlight! @variable guifg=#c0c0c0
+\|  highlight! @variable.builtin guifg=#f9e2af
 \|  highlight! @constant guifg=#c0c0c0
 \|  highlight! @parameter guifg=#FC9A41
 \|  highlight! @property guifg=#f5454a
@@ -21,6 +22,7 @@ vim.cmd([[
 " \|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
 " \|  highlight! NeoTreeGitUntracked guifg=#7a7a7a
 ]])
+
 vim.api.nvim_exec_autocmds("ColorScheme", {})
 
 -- https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#what-is-semantic-highlighting
