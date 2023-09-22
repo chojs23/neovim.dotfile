@@ -14,14 +14,14 @@ return {
       -- opts.sources =
       --   cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" }, { name = "copilot", group_index = 2 } }))
 
-      opts.sources = cmp.config.sources({
-        -- { name = "copilot" },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "emoji" },
-      })
+      -- opts.sources = cmp.config.sources({
+      --   -- { name = "copilot" },
+      --   { name = "nvim_lsp" },
+      --   { name = "luasnip" },
+      --   { name = "buffer" },
+      --   { name = "path" },
+      --   { name = "emoji" },
+      -- })
 
       -- cmp priority
       local types = require("cmp.types")
