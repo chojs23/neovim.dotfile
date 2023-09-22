@@ -9,21 +9,21 @@ return {
       },
       severity_sort = true,
     },
-    capabilities = {
-      textDocument = {
-        completion = {
-          editsNearCursor = true,
-        },
-      },
-      general = {
-        positionEncodings = { "utf-16" },
-      },
-      offsetEncoding = { "utf-16" },
-    },
-    flags = {
-      allow_incremental_sync = false,
-      debounce_text_changes = 150,
-    },
+    -- capabilities = {
+    --   textDocument = {
+    --     completion = {
+    --       editsNearCursor = true,
+    --     },
+    --   },
+    --   general = {
+    --     positionEncodings = { "utf-16" },
+    --   },
+    --   offsetEncoding = { "utf-16" },
+    -- },
+    -- flags = {
+    --   allow_incremental_sync = false,
+    --   debounce_text_changes = 500,
+    -- },
     inlay_hints = {
       enabled = true,
     },

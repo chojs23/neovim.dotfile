@@ -30,7 +30,7 @@ return {
         markdown = true,
         help = true,
       },
-      copilot_node_command = "/Users/neo/.nvm/versions/node/v16.15.0/bin/node",
+      -- copilot_node_command = "/Users/neo/.nvm/versions/node/v16.15.0/bin/node",
     },
   },
   {
@@ -39,15 +39,15 @@ return {
     enabled = false,
     opts = {},
     config = function(_, opts)
-      local copilot_cmp = require("copilot_cmp")
-      copilot_cmp.setup(opts)
-      -- attach cmp source whenever copilot attaches
-      -- fixes lazy-loading issues with the copilot cmp source
-      require("lazyvim.util").on_attach(function(client)
-        if client.name == "copilot" then
-          copilot_cmp._on_insert_enter({})
-        end
-      end)
+      -- local copilot_cmp = require("copilot_cmp")
+      -- copilot_cmp.setup(opts)
+      -- -- attach cmp source whenever copilot attaches
+      -- -- fixes lazy-loading issues with the copilot cmp source
+      -- require("lazyvim.util").on_attach(function(client)
+      --   if client.name == "copilot" then
+      --     copilot_cmp._on_insert_enter({})
+      --   end
+      -- end)
     end,
   },
 }
