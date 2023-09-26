@@ -41,9 +41,9 @@ return {
       dockerls = {},
       docker_compose_language_service = {},
       tsserver = {
-        -- on_attach = function(client, bufnr)
-        --   vim.lsp.inlay_hint(bufnr, true)
-        -- end,
+        on_attach = function(client, bufnr)
+          vim.lsp.inlay_hint(bufnr, true)
+        end,
         settings = {
           typescript = {
             format = {
@@ -79,6 +79,18 @@ return {
           },
           completion = {
             completeFunctionCalls = true,
+          },
+        },
+      },
+      rust_analyzer = {
+        on_attach = function(client, bufnr)
+          vim.lsp.inlay_hint(bufnr, false)
+        end,
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              autoreload = false,
+            },
           },
         },
       },
