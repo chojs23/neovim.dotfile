@@ -5,39 +5,11 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    opts = {
-      rainbow = { enable = true },
-      highlight = { enable = true },
-      indent = { enable = true },
-      ensure_installed = {
-        "bash",
-        "c",
-        "html",
-        "javascript",
-        "jsdoc",
-        "json",
-        "lua",
-        "luadoc",
-        "luap",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-        "prisma",
-        "sql",
-        "ron",
-        "rust",
-        "toml",
-        "php",
-        "dockerfile",
-      },
-      incremental_selection = {
+    opts = function(_, opts)
+      opts.rainbow = { enable = true }
+      opts.highlight = { enable = true }
+      opts.indent = { enable = true }
+      opts.incremental_selection = {
         enable = true,
         keymaps = {
           init_selection = "<C-space>",
@@ -45,8 +17,11 @@ return {
           scope_incremental = false,
           node_decremental = "<bs>",
         },
-      },
-    },
+      }
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "prisma", "php" })
+      end
+    end,
   },
   {
     "nvim-treesitter/playground",
