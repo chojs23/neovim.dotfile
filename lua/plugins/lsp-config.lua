@@ -94,22 +94,6 @@ return {
           },
         },
       },
-      -- rust_analyzer = {
-      --   capabilities = {
-      --     general = {
-      --       positionEncodings = { "utf-16" },
-      --     },
-      --     offsetEncoding = "utf-16",
-      --   },
-      --   settings = {
-      --     ["rust-analyzer"] = {
-      --       inlay_hints = {
-      --         closureCaptureHints = true,
-      --         parameterHints = true,
-      --       },
-      --     },
-      --   },
-      -- },
     },
     setup = {
       eslint = function()
