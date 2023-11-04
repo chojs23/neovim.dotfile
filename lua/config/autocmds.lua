@@ -1,3 +1,5 @@
+require("config/commands")
+
 vim.cmd([[
    augroup ColorSchemeOverride
    au!
