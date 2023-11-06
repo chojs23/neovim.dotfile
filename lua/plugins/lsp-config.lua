@@ -14,7 +14,7 @@ return {
       enabled = true,
     },
     servers = {
-      -- eslint = {},
+      eslint = {},
       lua_ls = {
         settings = {
           Lua = {
