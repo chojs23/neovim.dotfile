@@ -1,13 +1,4 @@
 return {
-  -- { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000, enabled = false },
-  -- {
-  --   "olimorris/onedarkpro.nvim",
-  --   priority = 1000,
-  --   opts = {
-  --     transparency = true,
-  --   },
-  --   enabled = false,
-  -- },
   {
     "catppuccin/nvim",
     name = "catppuccin",
