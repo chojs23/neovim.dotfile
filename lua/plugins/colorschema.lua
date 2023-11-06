@@ -8,7 +8,6 @@ return {
   --   },
   --   enabled = false,
   -- },
-  { "ap/vim-css-color", enabled = false },
   {
     "catppuccin/nvim",
     name = "catppuccin",
