@@ -2,6 +2,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.g.autoformat= true
+
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
@@ -22,7 +24,7 @@ opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
-opt.relativenumber = true -- Relative line numbers
+opt.relativenumber = false -- Relative line numbers
 opt.scrolloff = 8 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
@@ -47,6 +49,7 @@ opt.winminwidth = 5 -- Minimum window width
 opt.textwidth = 80
 opt.wrap = true
 opt.guicursor = ""
+opt.swapfile = false
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"

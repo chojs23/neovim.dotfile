@@ -11,7 +11,7 @@ vim.cmd([[
 \|  highlight! @constant guifg=#c0c0c0
 \|  highlight! @parameter guifg=#FC9A41
 \|  highlight! @property guifg=#f5454a
-\|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#8a8a8a
+\|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#505050
 \|  highlight! Visual guibg=#424242
 \|  highlight! LspInlayHint guifg=#636363 guibg=#151721
 \|  highlight! CopilotSuggestion guifg=#969696
