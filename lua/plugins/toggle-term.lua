@@ -2,12 +2,12 @@ return {
   {
     "akinsho/toggleterm.nvim",
     enabled = true,
-    -- config = true,
-    -- cmd = "ToggleTerm",
-    keys = { { "<C-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" } },
+    config = true,
+    cmd = "ToggleTerm",
+    -- keys = { { "<C-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" } },
     opts = {
       -- open_mapping = [[<F4>]],
-      direction = "horizontal",
+      direction = "float",
       shade_filetypes = {},
       hide_numbers = true,
       insert_mappings = true,
