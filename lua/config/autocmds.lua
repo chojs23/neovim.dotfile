@@ -1,53 +1,53 @@
 require("config/commands")
 
-vim.cmd([[
-   augroup ColorSchemeOverride
-   au!
-   au ColorScheme *
-   \ highlight! Comment cterm=italic gui=italic guifg=#858585
-\|  highlight! Normal guifg=#d6d6d6
-\|  highlight! @variable guifg=#c0c0c0
-\|  highlight! @variable.builtin guifg=#f9e2af
-\|  highlight! @constant guifg=#c0c0c0
-\|  highlight! @parameter guifg=#FC9A41
-\|  highlight! @property guifg=#f5454a
-\|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#505050
-\|  highlight! Visual guibg=#424242
-\|  highlight! LspInlayHint guifg=#636363 guibg=#151721
-\|  highlight! CopilotSuggestion guifg=#969696
-\|  highlight! TroubleNormal guibg=#151515
-" \|  highlight! Pmenu guibg=#1c1c1c
-" \|  highlight! PmenuThumb guibg=#bdbbbb
-" \|  highlight! PmenuSel guibg=#003000
-" \|  highlight! NeoTreeCursorLine guibg=#303030
-" \|  highlight! NeoTreeDotfile guibg=#7a7a7a
-" \|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
-" \|  highlight! NeoTreeGitUntracked guifg=#7a7a7a
-]])
+-- vim.cmd([[
+--    augroup ColorSchemeOverride
+--    au!
+--    au ColorScheme *
+--    \ highlight! Comment cterm=italic gui=italic guifg=#858585
+-- \|  highlight! Normal guifg=#d6d6d6
+-- \|  highlight! @variable guifg=#c0c0c0
+-- \|  highlight! @variable.builtin guifg=#f9e2af
+-- \|  highlight! @constant guifg=#c0c0c0
+-- \|  highlight! @parameter guifg=#FC9A41
+-- \|  highlight! @property guifg=#f5454a
+-- \|  highlight! GitSignsCurrentLineBlame cterm=italic gui=italic guifg=#505050
+-- \|  highlight! Visual guibg=#424242
+-- \|  highlight! LspInlayHint guifg=#636363 guibg=#151721
+-- \|  highlight! CopilotSuggestion guifg=#969696
+-- \|  highlight! TroubleNormal guibg=#151515
+-- " \|  highlight! Pmenu guibg=#1c1c1c
+-- " \|  highlight! PmenuThumb guibg=#bdbbbb
+-- " \|  highlight! PmenuSel guibg=#003000
+-- " \|  highlight! NeoTreeCursorLine guibg=#303030
+-- " \|  highlight! NeoTreeDotfile guibg=#7a7a7a
+-- " \|  highlight! NeoTreeGitIgnored guifg=#7a7a7a
+-- " \|  highlight! NeoTreeGitUntracked guifg=#7a7a7a
+-- ]])
 
-vim.api.nvim_exec_autocmds("ColorScheme", {})
+-- vim.api.nvim_exec_autocmds("ColorScheme", {})
 
 -- https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#what-is-semantic-highlighting
 
-local links = {
-  ["@lsp.type.namespace"] = "@namespace",
-  ["@lsp.type.type"] = "@type",
-  ["@lsp.type.class"] = "@type",
-  ["@lsp.type.enum"] = "@type",
-  ["@lsp.type.interface"] = "@type",
-  ["@lsp.type.struct"] = "@structure",
-  ["@lsp.type.parameter"] = "@parameter",
-  ["@lsp.type.variable"] = "@variable",
-  ["@lsp.type.property"] = "@property",
-  ["@lsp.type.enumMember"] = "@constant",
-  ["@lsp.type.function"] = "@function",
-  ["@lsp.type.method"] = "@method",
-  ["@lsp.type.macro"] = "@macro",
-  ["@lsp.type.decorator"] = "@function",
-}
-for newgroup, oldgroup in pairs(links) do
-  vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
-end
+-- local links = {
+--   ["@lsp.type.namespace"] = "@namespace",
+--   ["@lsp.type.type"] = "@type",
+--   ["@lsp.type.class"] = "@type",
+--   ["@lsp.type.enum"] = "@type",
+--   ["@lsp.type.interface"] = "@type",
+--   ["@lsp.type.struct"] = "@structure",
+--   ["@lsp.type.parameter"] = "@parameter",
+--   ["@lsp.type.variable"] = "@variable",
+--   ["@lsp.type.property"] = "@property",
+--   ["@lsp.type.enumMember"] = "@constant",
+--   ["@lsp.type.function"] = "@function",
+--   ["@lsp.type.method"] = "@method",
+--   ["@lsp.type.macro"] = "@macro",
+--   ["@lsp.type.decorator"] = "@function",
+-- }
+-- for newgroup, oldgroup in pairs(links) do
+--   vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
+-- end
 
 -- if using copilot.vim
 -- vim.g.copilot_node_command = "~/.nvm/versions/node/v16.15.0/bin/node"
