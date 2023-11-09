@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" },
   opts = {
     diagnostics = {
       underline = true,
@@ -56,10 +56,22 @@ return {
         on_attach = function(client, bufnr)
           vim.lsp.inlay_hint(bufnr, false)
         end,
+        -- cmd = { "/Users/neo/.cargo/bin/rust-analyzer" },
         settings = {
           ["rust-analyzer"] = {
+            imports = {
+              granularity = {
+                group = "module",
+              },
+              prefix = "self",
+            },
             cargo = {
               autoreload = false,
+            },
+            completion = {
+              privateEditable = {
+                enable = true,
+              },
             },
           },
         },
