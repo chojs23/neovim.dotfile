@@ -10,7 +10,7 @@ return {
       ["Warning"] = Util.ui.fg("DiagnosticError"),
       ["InProgress"] = Util.ui.fg("DiagnosticWarn"),
     }
-    opts.options.theme = "ayu_dark"
+    opts.options.theme = "16color"
 
     table.insert(opts.sections.lualine_x, 2, {
       function()
@@ -19,7 +19,13 @@ return {
         return icon .. (status.message or "")
       end,
       cond = function()
-        local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
+        if not package.loaded["copilot"] then
+          return
+        end
+        local ok, clients = pcall(require("lazyvim.util").lsp.get_clients, { name = "copilot", bufnr = 0 })
+        if not ok then
+          return false
+        end
         return ok and #clients > 0
       end,
       color = function()
