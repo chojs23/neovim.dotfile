@@ -24,8 +24,6 @@ return {
           },
         },
       },
-      dockerls = {},
-      docker_compose_language_service = {},
       tsserver = {
         settings = {
           typescript = {
@@ -59,19 +57,8 @@ return {
         -- cmd = { "/Users/neo/.cargo/bin/rust-analyzer" },
         settings = {
           ["rust-analyzer"] = {
-            imports = {
-              granularity = {
-                group = "module",
-              },
-              prefix = "self",
-            },
             cargo = {
               autoreload = false,
-            },
-            completion = {
-              privateEditable = {
-                enable = true,
-              },
             },
           },
         },
