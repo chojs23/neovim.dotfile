@@ -19,6 +19,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<F1>", "")
 vim.keymap.set("i", "<F1>", "")
 
+vim.keymap.set("i", "<ESC>", "<ESC>l")
+
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })

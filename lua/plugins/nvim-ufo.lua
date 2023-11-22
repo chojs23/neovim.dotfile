@@ -3,6 +3,7 @@ local M = {
   dependencies = {
     "kevinhwang91/promise-async",
   },
+  keys = { { "zp", desc = "Peek fold" } },
 }
 
 function M.config()

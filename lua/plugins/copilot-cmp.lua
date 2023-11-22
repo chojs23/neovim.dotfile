@@ -7,7 +7,7 @@ return {
     build = ":Copilot auth",
     opts = {
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         keymap = {
           accept = "<C-y>",
@@ -36,7 +36,7 @@ return {
   {
     "zbirenbaum/copilot-cmp",
     dependencies = "copilot.lua",
-    enabled = true,
+    enabled = false,
     opts = {},
     config = function(_, opts)
       local copilot_cmp = require("copilot_cmp")
