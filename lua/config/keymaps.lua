@@ -22,10 +22,10 @@ vim.keymap.set("i", "<F1>", "")
 vim.keymap.set("i", "<ESC>", "<ESC>l")
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-map("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-map("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-map("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+-- map("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+-- map("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+-- map("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+-- map("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- if using copilot.vim
 -- vim.keymap.set("i", "<C-n>", "<Plug>(copilot-next)")
