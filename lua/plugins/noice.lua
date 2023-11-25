@@ -1,7 +1,13 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
+  enabled = true,
   opts = {
+    cmdline = {
+      enabled = true, -- enables the Noice cmdline UI
+      view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+      opts = {}, -- global options for the cmdline. See section on views
+    },
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -29,7 +35,7 @@ return {
     },
     presets = {
       bottom_search = true,
-      command_palette = true,
+      command_palette = false,
       long_message_to_split = true,
       inc_rename = true,
     },
