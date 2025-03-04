@@ -230,4 +230,20 @@ return {
   {
     "mg979/vim-visual-multi",
   },
+  {
+    "cordx56/rustowl",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.rustowl.setup({
+        trigger = {
+          hover = true,
+        },
+        idle_time = 1000,
+      })
+    end,
+    -- keys = {
+    --   { "<C-o>", require("rustowl").rustowl_cursor, desc = "RustOwl" },
+    -- },
+  },
 }
