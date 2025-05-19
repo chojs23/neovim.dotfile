@@ -230,28 +230,28 @@ return {
   {
     "mg979/vim-visual-multi",
   },
-  {
-    "cordx56/rustowl",
-    version = "*", -- Latest stable version
-    build = "cd rustowl && cargo install --path . -F installer --locked",
-    lazy = false, -- This plugin is already lazy
-    opts = {
-      client = {
-        on_attach = function(_, buffer)
-          vim.keymap.set("n", "<leader>or", function()
-            require("rustowl").toggle(buffer)
-          end, { buffer = buffer, desc = "Toggle RustOwl" })
-        end,
-      },
-    },
-    keys = {
-      {
-        "<leader>or",
-        function()
-          require("rustowl").toggle()
-        end,
-        desc = "Toggle RustOwl",
-      },
-    },
-  },
+  -- {
+  --   "cordx56/rustowl",
+  --   version = "*", -- Latest stable version
+  --   build = "cd rustowl && cargo install --path . -F installer --locked",
+  --   lazy = false, -- This plugin is already lazy
+  --   opts = {
+  --     client = {
+  --       on_attach = function(_, buffer)
+  --         vim.keymap.set("n", "<leader>or", function()
+  --           require("rustowl").toggle(buffer)
+  --         end, { buffer = buffer, desc = "Toggle RustOwl" })
+  --       end,
+  --     },
+  --   },
+  --   keys = {
+  --     {
+  --       "<leader>or",
+  --       function()
+  --         require("rustowl").toggle()
+  --       end,
+  --       desc = "Toggle RustOwl",
+  --     },
+  --   },
+  -- },
 }
