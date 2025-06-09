@@ -154,7 +154,7 @@ return {
     opts = {
       skip_confirm_for_simple_edits = true,
       keymaps = {
-        ["<leader>oo"] = "actions.close",
+        ["<leader>="] = "actions.close",
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",
@@ -167,7 +167,7 @@ return {
     enabled = true,
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = { { "<leader>oo", "<cmd>Oil<cr>", desc = "Open parent directory" } },
+    keys = { { "<leader>=", "<cmd>Oil<cr>", desc = "Open parent directory" } },
   },
   {
     "andweeb/presence.nvim",
@@ -230,28 +230,19 @@ return {
   {
     "mg979/vim-visual-multi",
   },
-  -- {
-  --   "cordx56/rustowl",
-  --   version = "*", -- Latest stable version
-  --   build = "cd rustowl && cargo install --path . -F installer --locked",
-  --   lazy = false, -- This plugin is already lazy
-  --   opts = {
-  --     client = {
-  --       on_attach = function(_, buffer)
-  --         vim.keymap.set("n", "<leader>or", function()
-  --           require("rustowl").toggle(buffer)
-  --         end, { buffer = buffer, desc = "Toggle RustOwl" })
-  --       end,
-  --     },
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>or",
-  --       function()
-  --         require("rustowl").toggle()
-  --       end,
-  --       desc = "Toggle RustOwl",
-  --     },
-  --   },
-  -- },
+  {
+    "cordx56/rustowl",
+    version = "*", -- Latest stable version
+    build = "cargo binstall rustowl",
+    lazy = false, -- This plugin is already lazy
+    opts = {
+      client = {
+        on_attach = function(_, buffer)
+          vim.keymap.set("n", "<leader>o", function()
+            require("rustowl").toggle(buffer)
+          end, { buffer = buffer, desc = "Toggle RustOwl" })
+        end,
+      },
+    },
+  },
 }
