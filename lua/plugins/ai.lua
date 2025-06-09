@@ -4,17 +4,10 @@ return {
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     opts = {
-      -- add any opts here
-      -- for example
       provider = "copilot",
-      -- ollama = {
-      --   model = "deepseek-r1",
-      -- },
-      -- cursor_applying_provider = "groq", -- In this example, use Groq for applying, but you can also use any provider you want.
-      -- behaviour = {
-      --   --- ... existing behaviours
-      --   enable_cursor_planning_mode = true, -- enable cursor planning mode!
-      -- },
+      copilot = {
+        model = "o4-mini", -- Default model
+      },
     },
     -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
     system_prompt = function()
@@ -55,7 +48,7 @@ return {
               insert_mode = true,
             },
             -- required for Windows users
-            use_absolute_path = true,
+            use_absolute_path = false,
           },
         },
       },
@@ -69,27 +62,27 @@ return {
       },
     },
   },
-  -- {
-  --   "ravitemer/mcphub.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
-  --   },
-  --   -- uncomment the following line to load hub lazily
-  --   --cmd = "MCPHub",  -- lazy load
-  --   build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
-  --   -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
-  --   -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
-  --   config = function()
-  --     require("mcphub").setup({
-  --       extensions = {
-  --         avante = {
-  --           make_slash_commands = true, -- make /slash commands from MCP server prompts
-  --         },
-  --       },
-  --     })
-  --   end,
-  --   keys = {
-  --     { "<leader>mh", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
-  --   },
-  -- },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
+    },
+    -- uncomment the following line to load hub lazily
+    --cmd = "MCPHub",  -- lazy load
+    build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+    -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
+    -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
+    config = function()
+      require("mcphub").setup({
+        extensions = {
+          avante = {
+            make_slash_commands = true, -- make /slash commands from MCP server prompts
+          },
+        },
+      })
+    end,
+    keys = {
+      { "<leader>mh", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
+    },
+  },
 }
