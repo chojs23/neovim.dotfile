@@ -5,8 +5,10 @@ return {
     version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = "copilot",
-      copilot = {
-        model = "o4-mini", -- Default model
+      providers = {
+        copilot = {
+          model = "claude-sonnet-4",
+        },
       },
     },
     -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub

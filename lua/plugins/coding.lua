@@ -3,6 +3,30 @@ return {
     "tpope/vim-dispatch",
   },
   {
+    "kevinhwang91/nvim-hlslens",
+    event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        "n",
+        [[<cmd>execute('normal! ' . v:count1 . 'n')<cr>]] .. [[<cmd>lua require("hlslens").start()<cr>]],
+      },
+      {
+        "N",
+        [[<cmd>execute('normal! ' . v:count1 . 'N')<cr>]] .. [[<cmd>lua require("hlslens").start()<cr>]],
+      },
+      { "*", "*" .. [[<cmd>lua require("hlslens").start()<cr>]] },
+      { "#", "#" .. [[<cmd>lua require("hlslens").start()<cr>]] },
+      { "g*", "g*" .. [[<cmd>lua require("hlslens").start()<cr>]] },
+      { "g#", "g#" .. [[<cmd>lua require("hlslens").start()<cr>]] },
+    },
+    config = function()
+      vim.api.nvim_set_hl(0, "HlSearchLens", { link = "Search" })
+      require("hlslens").setup({
+        calm_down = true,
+      })
+    end,
+  },
+  {
     "radenling/vim-dispatch-neovim",
     dependencies = "tpope/vim-dispatch",
   },
