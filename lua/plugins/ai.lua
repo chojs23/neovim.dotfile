@@ -1,25 +1,58 @@
 return {
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    opts = function(_, opts)
+      opts.copilot_model = "claude-sonnet-4" -- Use Claude Sonnet 4 model
+    end,
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    dir = "~/Desktop/my/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
-    opts = {
-      provider = "copilot",
-      providers = {
+    opts = function(_, opts)
+      opts.provider = "copilot"
+      opts.providers = {
         copilot = {
           model = "claude-sonnet-4",
         },
-      },
-    },
-    -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
-    system_prompt = function()
-      local hub = require("mcphub").get_hub_instance()
-      return hub:get_active_servers_prompt()
-    end,
-    -- The custom_tools type supports both a list and a function that returns a list. Using a function here prevents requiring mcphub before it's loaded
-    custom_tools = function()
-      return {
-        require("mcphub.extensions.avante").mcp_tool(),
+      }
+      -- opts.mode = "legacy"
+      -- opts.system_prompt = function()
+      --   local hub = require("mcphub").get_hub_instance()
+      --   return hub:get_active_servers_prompt()
+      -- end
+      --
+      -- opts.custom_tools = function()
+      --   return {
+      --     require("mcphub.extensions.avante").mcp_tool(),
+      --   }
+      -- end
+      opts.windows = {
+        position = "left", -- the position of the sidebar
+        wrap = true, -- similar to vim.o.wrap
+        width = 40, -- default % based on available width
+        sidebar_header = {
+          enabled = true, -- true, false to enable/disable the header
+          align = "center", -- left, center, right for title
+          rounded = true,
+        },
+        input = {
+          prefix = "> ",
+          height = 12, -- Height of the input window in vertical layout
+        },
+        edit = {
+          border = "rounded",
+          start_insert = false, -- Start insert mode when opening the edit window
+        },
+        ask = {
+          floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+          start_insert = false, -- Start insert mode when opening the ask window
+          border = "rounded",
+          ---@type "ours" | "theirs"
+          focus_on_apply = "ours", -- which diff to focus after applying
+        },
       }
     end,
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -51,6 +84,21 @@ return {
             },
             -- required for Windows users
             use_absolute_path = false,
+          },
+          behaviour = {
+            auto_suggestions = false, -- Experimental stage
+            auto_set_highlight_group = true,
+            auto_set_keymaps = true,
+            auto_apply_diff_after_generation = false,
+            support_paste_from_clipboard = false,
+            minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+            enable_token_counting = true, -- Whether to enable token counting. Default to true.
+            auto_approve_tool_permissions = false, -- Default: show permission prompts for all tools
+          },
+          mappings = {
+            diff = {
+              all_theirs = "cy",
+            },
           },
         },
       },
@@ -84,7 +132,7 @@ return {
       })
     end,
     keys = {
-      { "<leader>mh", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
+      { "<leader>am", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
     },
   },
 }

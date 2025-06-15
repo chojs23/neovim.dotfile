@@ -1,8 +1,5 @@
 return {
   {
-    "tpope/vim-dispatch",
-  },
-  {
     "kevinhwang91/nvim-hlslens",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
@@ -25,10 +22,6 @@ return {
         calm_down = true,
       })
     end,
-  },
-  {
-    "radenling/vim-dispatch-neovim",
-    dependencies = "tpope/vim-dispatch",
   },
   {
     "gorbit99/codewindow.nvim",
@@ -55,56 +48,6 @@ return {
       codewindow.apply_default_keybinds()
     end,
   },
-  --   {
-  --     "saghen/blink.cmp",
-  --     opts = {
-  --       completion = {
-  --         ghost_text = {
-  --           enabled = false,
-  --         },
-  --         list = {
-  --           selection = "auto_insert",
-  --         },
-  --         menu = {
-  --           border = "rounded",
-  --           winhighlight = "Normal:NormalFloat,FloatBorder:NormalFloat,CursorLine:BlinkCmpMenuSelection,Search:None",
-  --         },
-  --         documentation = {
-  --           auto_show = true,
-  --           window = {
-  --             border = "rounded",
-  --           },
-  --         },
-  --       },
-  --       keymap = {
-  --         preset = "enter",
-  --         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-  --         ["enter"] = {
-  --           function(cmp)
-  --             if cmp.snippet_active() then
-  --               return cmp.accept()
-  --             else
-  --               return cmp.select_and_accept()
-  --             end
-  --           end,
-  --           "snippet_forward",
-  --           "fallback",
-  --         },
-  --         ["<C-p>"] = { "select_prev", "fallback" },
-  --         ["<C-n>"] = { "select_next", "fallback" },
-  --
-  --         ["<S-Tab>"] = { "select_prev", "fallback" },
-  --         ["<Tab>"] = { "select_next", "fallback" },
-  --
-  --         ["<C-b>"] = { "scroll_documentation_up", "fallback" },
-  --         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-  --         ["<C-y>"] = {},
-  --       },
-  --     },
-  --     config = function(_, opts)
-  --       require("blink.cmp").setup(opts)
-  --     end,
-  --   },
   {
     "gbprod/yanky.nvim",
     desc = "Better Yank/Paste",
@@ -230,43 +173,24 @@ return {
     },
   },
   {
-    {
-      "akinsho/toggleterm.nvim",
-      enabled = true,
-      config = true,
-      cmd = "ToggleTerm",
-      -- keys = { { "<C-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" } },
-      opts = {
-        -- open_mapping = [[<F4>]],
-        direction = "float",
-        shade_filetypes = {},
-        hide_numbers = true,
-        insert_mappings = true,
-        terminal_mappings = true,
-        start_in_insert = true,
-        close_on_exit = true,
-      },
-    },
-  },
-  {
     "NoahTheDuke/vim-just",
   },
   {
     "mg979/vim-visual-multi",
   },
-  {
-    "cordx56/rustowl",
-    version = "*", -- Latest stable version
-    build = "cargo binstall rustowl",
-    lazy = false, -- This plugin is already lazy
-    opts = {
-      client = {
-        on_attach = function(_, buffer)
-          vim.keymap.set("n", "<leader>o", function()
-            require("rustowl").toggle(buffer)
-          end, { buffer = buffer, desc = "Toggle RustOwl" })
-        end,
-      },
-    },
-  },
+  -- {
+  --   "cordx56/rustowl",
+  --   version = "*", -- Latest stable version
+  --   build = "cargo binstall rustowl",
+  --   lazy = false, -- This plugin is already lazy
+  --   opts = {
+  --     client = {
+  --       on_attach = function(_, buffer)
+  --         vim.keymap.set("n", "<leader>o", function()
+  --           require("rustowl").toggle(buffer)
+  --         end, { buffer = buffer, desc = "Toggle RustOwl" })
+  --       end,
+  --     },
+  --   },
+  -- },
 }

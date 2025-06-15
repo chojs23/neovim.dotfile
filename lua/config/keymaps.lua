@@ -31,7 +31,13 @@ local function toggle_netrw()
   vim.cmd("enew | Explore")
 end
 
-vim.keymap.set("n", "<leader>n", toggle_netrw, { silent = true })
+-- require("which-key").add({
+--   ["<leader>"] = {
+--     n = { toggle_netrw, "Toggle Netrw" },
+--   },
+-- }, { mode = "n", silent = true })
+--
+-- vim.keymap.set("n", "<leader>n", toggle_netrw, { silent = true })
 
 -- Netrw postion current
 -- vim.keymap.set("n", "<leader>n", ":Explore<CR>", { silent = true })
