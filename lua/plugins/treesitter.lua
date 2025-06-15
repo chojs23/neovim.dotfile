@@ -1,9 +1,5 @@
 return {
   {
-    "hiphish/rainbow-delimiters.nvim",
-    enabled = false,
-  },
-  {
     "nvim-treesitter/nvim-treesitter-context",
     event = "LazyFile",
     enabled = true,
