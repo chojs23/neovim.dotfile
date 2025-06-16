@@ -12,6 +12,7 @@ return {
     dir = "~/Desktop/my/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
     opts = function(_, opts)
+      vim.api.nvim_set_hl(0, "AvanteSidebarWinSeparator", { fg = "#ffffff" })
       opts.provider = "copilot"
       opts.providers = {
         copilot = {
@@ -30,7 +31,7 @@ return {
       --   }
       -- end
       opts.windows = {
-        position = "left", -- the position of the sidebar
+        position = "bottom", -- the position of the sidebar
         wrap = true, -- similar to vim.o.wrap
         width = 40, -- default % based on available width
         sidebar_header = {
