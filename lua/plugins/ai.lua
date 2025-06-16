@@ -31,7 +31,7 @@ return {
       --   }
       -- end
       opts.windows = {
-        position = "bottom", -- the position of the sidebar
+        position = "right", -- Placing vertially doen not work on nvim 0.12.0
         wrap = true, -- similar to vim.o.wrap
         width = 40, -- default % based on available width
         sidebar_header = {
