@@ -19,7 +19,7 @@ return {
     config = function()
       vim.api.nvim_set_hl(0, "HlSearchLens", { link = "Search" })
       require("hlslens").setup({
-        calm_down = true,
+        calm_down = false,
       })
     end,
   },
