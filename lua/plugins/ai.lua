@@ -9,7 +9,6 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    dir = "~/Desktop/my/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
     opts = function(_, opts)
       vim.api.nvim_set_hl(0, "AvanteSidebarWinSeparator", { fg = "#ffffff" })
