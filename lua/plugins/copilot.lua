@@ -4,8 +4,9 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     build = ":Copilot auth",
-    opts = {
-      suggestion = {
+
+    opts = function(_, opts)
+      opts.suggestion = {
         enabled = true,
         auto_trigger = true,
         keymap = {
@@ -16,21 +17,20 @@ return {
           prev = "<C-p>",
           dismiss = "<C-]>",
         },
-      },
-      panel = {
+      }
+      opts.panel = {
         enabled = false,
         auto_refresh = true,
         layout = {
           position = "right",
           ratio = 0.3,
         },
-      },
-      filetypes = {
+      }
+      opts.filetypes = {
         markdown = true,
         help = true,
-      },
-      -- copilot_node_command = "/Users/neo/.nvm/versions/node/v16.15.0/bin/node",
-    },
+      }
+    end,
   },
   -- {
   --   "zbirenbaum/copilot.lua",
