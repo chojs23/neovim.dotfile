@@ -1,12 +1,5 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    opts = function(_, opts)
-      opts.copilot_model = "claude-sonnet-4" -- Use Claude Sonnet 4 model
-    end,
-  },
-  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
@@ -19,16 +12,16 @@ return {
         },
       }
       -- opts.mode = "legacy"
-      -- opts.system_prompt = function()
-      --   local hub = require("mcphub").get_hub_instance()
-      --   return hub:get_active_servers_prompt()
-      -- end
-      --
-      -- opts.custom_tools = function()
-      --   return {
-      --     require("mcphub.extensions.avante").mcp_tool(),
-      --   }
-      -- end
+      opts.system_prompt = function()
+        local hub = require("mcphub").get_hub_instance()
+        return hub:get_active_servers_prompt()
+      end
+
+      opts.custom_tools = function()
+        return {
+          require("mcphub.extensions.avante").mcp_tool(),
+        }
+      end
       opts.windows = {
         position = "right", -- Placing vertially doen not work on nvim 0.12.0
         wrap = true, -- similar to vim.o.wrap
@@ -122,14 +115,21 @@ return {
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
     -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
     -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
-    config = function()
-      require("mcphub").setup({
-        extensions = {
-          avante = {
-            make_slash_commands = true, -- make /slash commands from MCP server prompts
-          },
+    -- config = function()
+    --   require("mcphub").setup({
+    --     extensions = {
+    --       avante = {
+    --         make_slash_commands = true, -- make /slash commands from MCP server prompts
+    --       },
+    --     },
+    --   })
+    -- end,
+    opts = function(_, opts)
+      opts.extensions = {
+        avante = {
+          make_slash_commands = true, -- make /slash commands from MCP server prompts
         },
-      })
+      }
     end,
     keys = {
       { "<leader>am", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
