@@ -73,9 +73,6 @@ return {
     },
   },
   {
-    "sindrets/diffview.nvim",
-  },
-  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
@@ -113,7 +110,6 @@ return {
     },
     keys = {
       { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" },
-      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diffview open" },
     },
   },
   {
