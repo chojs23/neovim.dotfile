@@ -1,8 +1,8 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
+    opts = function(_, opts)
+      opts.filesystem = {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
         use_libuv_file_watcher = true,
@@ -45,20 +45,22 @@ return {
             ["oa"] = "avante_add_files",
           },
         },
-      },
-      window = {
+      }
+      opts.window = {
         position = "left",
         width = 25,
         mappings = {
           ["<space>"] = "none",
+          ["/"] = "none",
+          ["#"] = "fuzzy_sorter",
         },
-      },
-      default_component_configs = {
+      }
+      opts.default_component_configs = {
         symlink_target = {
           enabled = true,
         },
-      },
-    },
+      }
+    end,
   },
   {
     "folke/flash.nvim",
