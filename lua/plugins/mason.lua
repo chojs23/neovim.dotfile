@@ -5,5 +5,6 @@ return {
       border = "rounded",
     }
     table.insert(opts.ensure_installed, "prettierd")
+    table.insert(opts.ensure_installed, "eslint_d")
   end,
 }
