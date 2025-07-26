@@ -173,4 +173,5 @@ return {
       })
     end,
   },
+  { "danilamihailov/beacon.nvim" },
 }

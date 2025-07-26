@@ -5,10 +5,19 @@ return {
     version = false, -- Never set this value to "*"! Never!
     opts = function(_, opts)
       vim.api.nvim_set_hl(0, "AvanteSidebarWinSeparator", { fg = "#ffffff" })
+      -- opts.provider = "claude"
       opts.provider = "copilot"
       opts.providers = {
         copilot = {
           model = "claude-sonnet-4",
+        },
+        claude = {
+          model = "claude-sonnet-4",
+          endpoint = "https://api.anthropic.com",
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 4096,
+          },
         },
       }
       -- opts.mode = "legacy"
