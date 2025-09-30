@@ -1,5 +1,34 @@
 return {
   {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    config = function()
+      require("claude-code").setup({
+        window = {
+          position = "vertical",
+          enter_insert = false,
+        },
+        keymaps = {
+          toggle = {
+            normal = "<C-,>", -- Normal mode keymap for toggling Claude Code, false to disable
+            terminal = "<C-,>", -- Terminal mode keymap for toggling Claude Code, false to disable
+            variants = {
+              continue = "<leader>cC", -- Normal mode keymap for Claude Code with continue flag
+              verbose = "<leader>cV", -- Normal mode keymap for Claude Code with verbose flag
+            },
+          },
+          window_navigation = true, -- Enable window navigation keymaps (<C-h/j/k/l>)
+          scrolling = true, -- Enable scrolling keymaps (<C-f/b>) for page up/down
+        },
+      })
+    end,
+    keys = {
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Claude cli", mode = { "n" } },
+    },
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
@@ -21,16 +50,16 @@ return {
         },
       }
       -- opts.mode = "legacy"
-      opts.system_prompt = function()
-        local hub = require("mcphub").get_hub_instance()
-        return hub:get_active_servers_prompt()
-      end
-
-      opts.custom_tools = function()
-        return {
-          require("mcphub.extensions.avante").mcp_tool(),
-        }
-      end
+      -- opts.system_prompt = function()
+      --   local hub = require("mcphub").get_hub_instance()
+      --   return hub:get_active_servers_prompt()
+      -- end
+      --
+      -- opts.custom_tools = function()
+      --   return {
+      --     require("mcphub.extensions.avante").mcp_tool(),
+      --   }
+      -- end
       opts.windows = {
         position = "right", -- Placing vertially doen not work on nvim 0.12.0
         wrap = true, -- similar to vim.o.wrap
@@ -66,7 +95,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "echasnovski/mini.pick", -- for file_selector provider mini.pick
+      -- "echasnovski/mini.pick", -- for file_selector provider mini.pick
       "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua", -- for file_selector provider fzf
@@ -115,34 +144,34 @@ return {
       },
     },
   },
-  {
-    "ravitemer/mcphub.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
-    },
-    -- uncomment the following line to load hub lazily
-    --cmd = "MCPHub",  -- lazy load
-    build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
-    -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
-    -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
-    -- config = function()
-    --   require("mcphub").setup({
-    --     extensions = {
-    --       avante = {
-    --         make_slash_commands = true, -- make /slash commands from MCP server prompts
-    --       },
-    --     },
-    --   })
-    -- end,
-    opts = function(_, opts)
-      opts.extensions = {
-        avante = {
-          make_slash_commands = true, -- make /slash commands from MCP server prompts
-        },
-      }
-    end,
-    keys = {
-      { "<leader>am", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
-    },
-  },
+  -- {
+  --   "ravitemer/mcphub.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
+  --   },
+  --   -- uncomment the following line to load hub lazily
+  --   --cmd = "MCPHub",  -- lazy load
+  --   build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+  --   -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
+  --   -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
+  --   -- config = function()
+  --   --   require("mcphub").setup({
+  --   --     extensions = {
+  --   --       avante = {
+  --   --         make_slash_commands = true, -- make /slash commands from MCP server prompts
+  --   --       },
+  --   --     },
+  --   --   })
+  --   -- end,
+  --   opts = function(_, opts)
+  --     opts.extensions = {
+  --       avante = {
+  --         make_slash_commands = true, -- make /slash commands from MCP server prompts
+  --       },
+  --     }
+  --   end,
+  --   keys = {
+  --     { "<leader>am", "<cmd>MCPHub<cr>", desc = "MCPHub", mode = { "n" } },
+  --   },
+  -- },
 }
