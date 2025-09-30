@@ -84,11 +84,12 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    opts = {
-      window = {
+    config = function(_, opts)
+      opts.win = {
         border = "single",
-      },
-    },
+      }
+      require("which-key").setup(opts)
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
