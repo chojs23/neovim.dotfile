@@ -18,6 +18,7 @@ return {
           dismiss = "<C-]>",
         },
       }
+      opts.model = "claude-sonnet-4"
       opts.panel = {
         enabled = false,
         auto_refresh = true,

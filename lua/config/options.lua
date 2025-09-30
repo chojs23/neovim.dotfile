@@ -72,3 +72,6 @@ vim.g.snacks_animate = false
 -- Prevent LSP override colorscheme highlight groups
 -- https://github.com/NvChad/NvChad/issues/1907
 -- vim.highlight.priorities.semantic_tokens = 95
+
+-- Set to false to disable auto format
+vim.g.lazyvim_eslint_auto_format = false
