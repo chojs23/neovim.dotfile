@@ -18,17 +18,26 @@ return {
       inlay_hints = {
         enabled = false,
       },
-      servers = {},
+      servers = {
+        tsgo = {
+          enabled = true,
+        },
+      },
       setup = {},
     },
   },
   {
     "pmizio/typescript-tools.nvim",
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       settings = {
-        tsserver_max_memory = 4096,
+        tsserver_max_memory = "auto",
       },
+    },
+    keys = {
+      { "<leader>co", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports" },
     },
   },
 }
