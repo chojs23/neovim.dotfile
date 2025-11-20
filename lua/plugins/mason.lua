@@ -1,10 +1,12 @@
 return {
   "mason-org/mason.nvim",
-  opts = function(_, opts)
-    opts.ui = {
+  opts = {
+    ui = {
       border = "rounded",
-    }
-    table.insert(opts.ensure_installed, "prettierd")
-    table.insert(opts.ensure_installed, "eslint_d")
-  end,
+    },
+    ensure_installed = {
+      "prettierd",
+      "eslint_d",
+    },
+  },
 }
