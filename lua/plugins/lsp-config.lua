@@ -19,20 +19,41 @@ return {
         enabled = false,
       },
       servers = {
-        tsgo = {
+        eslint = {
           enabled = true,
+          settings = {
+            codeAction = {
+              disableRuleComment = {
+                enable = true,
+                location = "separateLine",
+              },
+              showDocumentation = {
+                enable = false,
+              },
+            },
+            codeActionOnSave = {
+              enable = false,
+              mode = "all",
+            },
+            format = false,
+            quiet = true,
+            run = "onSave",
+          },
+        },
+        tsgo = {
+          enabled = false,
         },
       },
-      setup = {},
     },
   },
   {
     "pmizio/typescript-tools.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       settings = {
+        separate_diagnostic_server = false,
         tsserver_max_memory = "auto",
       },
     },
