@@ -19,8 +19,19 @@ return {
         enabled = false,
       },
       servers = {
-        eslint = {
+        biome = {
           enabled = true,
+          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+          settings = {
+            biome = {
+              format = {
+                enable = false,
+              },
+            },
+          },
+        },
+        eslint = {
+          enabled = false,
           settings = {
             codeAction = {
               disableRuleComment = {
@@ -55,6 +66,16 @@ return {
       settings = {
         separate_diagnostic_server = false,
         tsserver_max_memory = "auto",
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
+          includeCompletionsForModuleExports = true,
+          quotePreference = "auto",
+          allowImportingTsExtensions = true,
+        },
+        tsserver_format_options = {
+          allowIncompleteCompletions = false,
+          allowRenameOfImportPath = true,
+        },
       },
     },
     keys = {
