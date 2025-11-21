@@ -2,6 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    enabled = true,
     event = "InsertEnter",
     build = ":Copilot auth",
 
@@ -18,7 +19,6 @@ return {
           dismiss = "<C-]>",
         },
       }
-      opts.model = "claude-sonnet-4.5"
       opts.panel = {
         enabled = false,
         auto_refresh = true,

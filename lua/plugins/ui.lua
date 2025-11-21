@@ -87,7 +87,11 @@ return {
         table.insert(opts.sections.lualine_c, component)
       end
 
-      local function ins_right(component)
+      local function ins_right(component, pos)
+        if pos then
+          table.insert(opts.sections.lualine_x, pos, component)
+          return
+        end
         table.insert(opts.sections.lualine_x, component)
       end
 
@@ -111,7 +115,7 @@ return {
       --   cond = conditions.buffer_not_empty,
       -- })
 
-      table.insert(opts.sections.lualine_x, 1, {
+      ins_right({
         function()
           local msg = "No Active Lsp"
           local buf_ft = vim.api.nvim_get_option_value("filetype", {
@@ -131,10 +135,21 @@ return {
         end,
         -- icon = " LSP:",
         color = { fg = "#ffffff", gui = "bold" },
-      })
+      }, 1)
+
+      ins_right(
+        LazyVim.lualine.status(LazyVim.config.icons.kinds.Copilot, function()
+          local clients = package.loaded["copilot"] and vim.lsp.get_clients({ name = "copilot", bufnr = 0 }) or {}
+          if #clients > 0 then
+            local status = require("copilot.status").data.status
+            return (status == "InProgress" and "pending") or (status == "Warning" and "error") or "ok"
+          end
+        end),
+        2
+      )
 
       ins_right({
-        "o:encoding",
+        "encoding",
         fmt = string.upper,
         cond = conditions.hide_in_width,
         color = { fg = colors.green, gui = "bold" },
@@ -144,32 +159,6 @@ return {
         fmt = string.upper,
         icons_enabled = false,
         color = { fg = colors.green, gui = "bold" },
-      })
-
-      -- Copilot
-      table.insert(opts.sections.lualine_x, 2, {
-        function()
-          local icon = require("lazyvim.config").icons.kinds.Copilot
-          local status = require("copilot.api").status.data
-          return icon .. (status.message or "")
-        end,
-        cond = function()
-          if not package.loaded["copilot"] then
-            return
-          end
-          local ok, clients = pcall(require("lazyvim.util").lsp.get_clients, { name = "copilot", bufnr = 0 })
-          if not ok then
-            return false
-          end
-          return ok and #clients > 0
-        end,
-        color = function()
-          if not package.loaded["copilot"] then
-            return
-          end
-          local status = require("copilot.api").status.data
-          return colors[status.status] or colors[""]
-        end,
       })
     end,
   },
