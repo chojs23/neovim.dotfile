@@ -115,6 +115,10 @@ return {
   {
     "stevearc/oil.nvim",
     opts = {
+      columns = {
+        "permissions",
+        "size",
+      },
       skip_confirm_for_simple_edits = true,
       keymaps = {
         ["<leader>="] = "actions.close",
