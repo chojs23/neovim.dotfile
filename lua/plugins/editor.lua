@@ -91,4 +91,9 @@ return {
       require("scrollbar").setup(opts)
     end,
   },
+  {
+    "esmuellert/codediff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "CodeDiff",
+  },
 }
