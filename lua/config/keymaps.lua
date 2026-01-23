@@ -21,16 +21,6 @@ vim.keymap.set("i", "<F1>", "")
 
 vim.keymap.set("i", "<ESC>", "<ESC>l")
 
-local function toggle_netrw()
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(bufnr) and vim.bo[bufnr].filetype == "netrw" then
-      vim.cmd("bwipeout " .. bufnr)
-      return
-    end
-  end
-  vim.cmd("enew | Explore")
-end
-
 -- require("which-key").add({
 --   ["<leader>"] = {
 --     n = { toggle_netrw, "Toggle Netrw" },

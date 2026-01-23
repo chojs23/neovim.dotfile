@@ -16,11 +16,14 @@ return {
         },
       },
       inlay_hints = {
-        enabled = false,
+        enabled = true,
       },
       servers = {
+        ts_ls = {
+          enabled = false,
+        },
         biome = {
-          enabled = true,
+          enabled = false,
           filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
           settings = {
             biome = {
@@ -59,7 +62,7 @@ return {
   },
   {
     "pmizio/typescript-tools.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
