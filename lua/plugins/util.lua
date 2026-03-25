@@ -24,4 +24,20 @@ return {
       },
     },
   },
+  { "mistricky/codesnap.nvim", build = "make" },
+  {
+    "chojs23/ec",
+    cmd = "Ec",
+    keys = {
+      { "<leader>gr", ":Ec<CR>", desc = "Open ec" },
+    },
+    config = function()
+      require("ec").setup({
+        cmd = "ec",
+        float = {
+          width = 1,
+        },
+      })
+    end,
+  },
 }
