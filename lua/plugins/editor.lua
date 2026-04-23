@@ -93,11 +93,6 @@ return {
     end,
   },
   {
-    "esmuellert/codediff.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    cmd = "CodeDiff",
-  },
-  {
     "chrisgrieser/nvim-origami",
     event = "VeryLazy",
     opts = {}, -- required even when using default config
