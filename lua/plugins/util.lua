@@ -24,7 +24,6 @@ return {
       },
     },
   },
-  { "mistricky/codesnap.nvim", build = "make" },
   {
     "chojs23/ec",
     cmd = "Ec",
