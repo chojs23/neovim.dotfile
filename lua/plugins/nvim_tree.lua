@@ -3,6 +3,7 @@ require("nvim-tree").setup({
     width = 25,
   },
   renderer = {
+    special_files = {},
     group_empty = true,
     highlight_git = true,
     icons = {
