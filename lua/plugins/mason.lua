@@ -1,12 +1,5 @@
-return {
-  "mason-org/mason.nvim",
-  opts = {
-    ui = {
-      border = "rounded",
-    },
-    ensure_installed = {
-      "prettierd",
-      "eslint_d",
-    },
+require("mason").setup({
+  ui = {
+    border = "rounded",
   },
-}
+})

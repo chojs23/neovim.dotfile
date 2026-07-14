@@ -1,41 +1,55 @@
-return {
-  "stevearc/conform.nvim",
-  optional = true,
-  opts = {
-    formatters_by_ft = {
-      javascript = { "prettierd", stop_after_first = true },
-      typescript = { "prettierd", stop_after_first = true },
-      css = { "prettierd", "prettier", stop_after_first = true },
-      yaml = { "prettierd", "prettier", stop_after_first = true },
-      json = { "prettierd", "prettier", stop_after_first = true },
-      markdown = { "prettierd", "prettier", stop_after_first = true },
-      html = { "prettierd", "prettier", stop_after_first = true },
-      -- ["javascriptreact"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["typescriptreact"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["vue"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["css"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["scss"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["less"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["jsonc"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["yaml"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["markdown"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["markdown.mdx"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["graphql"] = { { "prettierd", "prettier", stop_after_first = true } },
-      -- ["handlebars"] = { { "prettierd", "prettier", stop_after_first = true } },
-    },
-    -- -- If this is set, Conform will run the formatter on save.
-    -- -- It will pass the table to conform.format().
-    -- -- This can also be a function that returns the table.
-    -- format_on_save = {
-    --   -- I recommend these options. See :help conform.format for details.
-    --   lsp_fallback = true,
-    --   timeout_ms = 500,
-    -- },
-    -- -- If this is set, Conform will run the formatter asynchronously after save.
-    -- -- It will pass the table to conform.format().
-    -- -- This can also be a function that returns the table.
-    -- format_after_save = {
-    --   lsp_fallback = true,
-    -- },
+local conform = require("conform")
+
+local function autoformat_enabled(buffer)
+  local buffer_setting = vim.b[buffer].autoformat
+  if buffer_setting ~= nil then
+    return buffer_setting
+  end
+
+  return vim.g.autoformat ~= false
+end
+
+conform.setup({
+  default_format_opts = {
+    timeout_ms = 3000,
+    async = false,
+    quiet = false,
+    lsp_format = "fallback",
   },
-}
+  formatters_by_ft = {
+    lua = { "stylua" },
+    fish = { "fish_indent" },
+    sh = { "shfmt" },
+    javascript = { "prettierd", stop_after_first = true },
+    typescript = { "prettierd", stop_after_first = true },
+    css = { "prettierd", "prettier", stop_after_first = true },
+    yaml = { "prettierd", "prettier", stop_after_first = true },
+    json = { "prettierd", "prettier", stop_after_first = true },
+    markdown = { "prettierd", "prettier", stop_after_first = true },
+    html = { "prettierd", "prettier", stop_after_first = true },
+  },
+  format_on_save = function(buffer)
+    if autoformat_enabled(buffer) then
+      return {}
+    end
+  end,
+})
+
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+vim.keymap.set({ "n", "x" }, "<leader>cf", function()
+  conform.format()
+end, { desc = "Format" })
+
+vim.keymap.set("n", "<leader>uf", function()
+  local enabled = vim.g.autoformat == false
+  vim.g.autoformat = enabled
+  vim.b.autoformat = nil
+  vim.notify("Global auto format " .. (enabled and "enabled" or "disabled"))
+end, { desc = "Toggle auto format (global)" })
+
+vim.keymap.set("n", "<leader>uF", function()
+  local enabled = not autoformat_enabled(0)
+  vim.b.autoformat = enabled
+  vim.notify("Buffer auto format " .. (enabled and "enabled" or "disabled"))
+end, { desc = "Toggle auto format (buffer)" })
