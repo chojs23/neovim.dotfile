@@ -12,6 +12,7 @@ for _, module in ipairs({
   "plugins.telescope",
   "plugins.mason",
   "plugins.blink",
+  "plugins.copilot",
   "plugins.lsp",
   "plugins.rustaceanvim",
   "plugins.formatting",
