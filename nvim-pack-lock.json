@@ -61,7 +61,7 @@
       "src": "https://github.com/kevinhwang91/nvim-hlslens"
     },
     "nvim-lspconfig": {
-      "rev": "2c227d5",
+      "rev": "d5b6e3d",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-origami": {

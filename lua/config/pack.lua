@@ -2,6 +2,16 @@ if not vim.pack or not vim.pack.add then
   error("requires a Neovim build with vim.pack support")
 end
 
+-- Must be defined before the first vim.pack.add() call to catch its events.
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = vim.api.nvim_create_augroup("pack_hooks", { clear = true }),
+  callback = function(ev)
+    if ev.data.spec.name == "nvim-treesitter" and ev.data.kind == "update" then
+      require("nvim-treesitter").update()
+    end
+  end,
+})
+
 vim.pack.add({
   "https://github.com/RRethy/base16-nvim",
   "https://github.com/nvim-mini/mini.ai",
