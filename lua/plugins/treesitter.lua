@@ -12,7 +12,6 @@ M.languages = {
   "lua",
   "markdown",
   "markdown_inline",
-  "prisma",
   "python",
   "regex",
   "tsx",
