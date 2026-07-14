@@ -19,6 +19,7 @@ for _, module in ipairs({
   "plugins.noice",
   "plugins.lualine",
   "plugins.smart_splits",
+  "plugins.im_switch",
 }) do
   require(module)
 end

@@ -16,6 +16,10 @@
       "rev": "eb60cc7",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "im-switch.nvim": {
+      "rev": "0b79f0c",
+      "src": "https://github.com/chojs23/im-switch.nvim"
+    },
     "lualine.nvim": {
       "rev": "221ce6b",
       "src": "https://github.com/nvim-lualine/lualine.nvim"

@@ -9,6 +9,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
     if ev.data.spec.name == "nvim-treesitter" and ev.data.kind == "update" then
       require("nvim-treesitter").update()
     end
+
+    -- Synchronous so the binary exists before setup() runs on first install.
+    if ev.data.spec.name == "im-switch.nvim" and ev.data.kind ~= "delete" then
+      vim.system({ "make", "build" }, { cwd = ev.data.path }):wait()
+    end
   end,
 })
 
@@ -41,6 +46,7 @@ vim.pack.add({
   "https://github.com/chrisgrieser/nvim-origami",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/mrjones2014/smart-splits.nvim",
+  "https://github.com/chojs23/im-switch.nvim",
 }, {
   load = false,
   confirm = false,
