@@ -64,6 +64,7 @@ local servers = {
   pyright = {},
   ruff = {},
   tsgo = {},
+  eslint = {},
   yamlls = {},
 }
 

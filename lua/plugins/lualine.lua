@@ -9,9 +9,11 @@ local noice_status = require("noice").api.status
 local function active_lsp()
   local filetype = vim.bo.filetype
   for _, client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
-    local filetypes = client.config.filetypes
-    if not filetypes or vim.tbl_contains(filetypes, filetype) then
-      return client.name
+    if client.name ~= "copilot" then
+      local filetypes = client.config.filetypes
+      if not filetypes or vim.tbl_contains(filetypes, filetype) then
+        return client.name
+      end
     end
   end
   return "No Active Lsp"
