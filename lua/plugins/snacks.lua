@@ -1,9 +1,5 @@
 vim.g.snacks_animate = false
 require("snacks").setup({
-  explorer = {
-    enabled = true,
-    replace_netrw = true,
-  },
   indent = {
     enabled = true,
     chunk = {
@@ -26,15 +22,5 @@ require("snacks").setup({
   },
   picker = {
     enabled = true,
-    sources = {
-      explorer = {
-        hidden = true,
-        ignored = true,
-        layout = {
-          hidden = { "input" },
-          layout = { width = 25 },
-        },
-      },
-    },
   },
 })

@@ -72,6 +72,10 @@
       "rev": "f8e87b9",
       "src": "https://github.com/petertriho/nvim-scrollbar"
     },
+    "nvim-tree.lua": {
+      "rev": "cf18a66",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
+    },
     "nvim-treesitter": {
       "rev": "4916d659",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"

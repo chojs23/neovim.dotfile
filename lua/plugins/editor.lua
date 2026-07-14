@@ -3,10 +3,10 @@ local function project_root()
 end
 
 vim.keymap.set("n", "<leader>e", function()
-  Snacks.explorer({ cwd = project_root() })
+  require("nvim-tree.api").tree.toggle({ path = project_root(), find_file = true })
 end, { desc = "Explorer root directory" })
 vim.keymap.set("n", "<leader>E", function()
-  Snacks.explorer({ cwd = vim.uv.cwd() })
+  require("nvim-tree.api").tree.toggle({ path = vim.uv.cwd(), find_file = true })
 end, { desc = "Explorer cwd" })
 
 require("flash").setup({

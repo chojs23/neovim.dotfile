@@ -5,6 +5,7 @@ for _, module in ipairs({
   "plugins.colorscheme",
   "plugins.mini",
   "plugins.snacks",
+  "plugins.nvim_tree",
   "plugins.treesitter",
   "plugins.telescope",
   "plugins.mason",
