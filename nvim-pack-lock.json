@@ -23,7 +23,7 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "im-switch.nvim": {
-      "rev": "0b79f0c",
+      "rev": "f2b6e27",
       "src": "https://github.com/chojs23/im-switch.nvim"
     },
     "lualine.nvim": {
