@@ -67,6 +67,8 @@ local servers = {
   yamlls = {},
 }
 
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
 for name, config in pairs(servers) do
   vim.lsp.config(name, config)
   vim.lsp.enable(name)
