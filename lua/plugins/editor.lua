@@ -127,8 +127,8 @@ require("scrollbar.handlers.search").setup({
 require("scrollbar").setup({
   handlers = {
     cursor = true,
-    diagnostic = false,
-    gitsigns = false,
+    diagnostic = true,
+    gitsigns = true,
     handle = true,
     search = true,
     ale = false,
