@@ -124,6 +124,7 @@ map("n", "<leader>fR", function()
 end, { desc = "Recent files in cwd" })
 
 map("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
+map("n", "<leader>gf", builtin.git_bcommits, { desc = "Git current file history" })
 map("n", "<leader>gl", builtin.git_commits, { desc = "Git commits" })
 map("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
 map("n", "<leader>gS", builtin.git_stash, { desc = "Git stash" })
