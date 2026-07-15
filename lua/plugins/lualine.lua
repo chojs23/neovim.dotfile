@@ -19,6 +19,19 @@ local function active_lsp()
   return "No Active Lsp"
 end
 
+local function active_formatters()
+  local formatters, use_lsp = require("conform").list_formatters_to_run(0)
+  local names = vim.tbl_map(function(formatter)
+    return formatter.name
+  end, formatters)
+
+  if use_lsp then
+    table.insert(names, "LSP")
+  end
+
+  return #names > 0 and table.concat(names, ", ") or "No Active Formatter"
+end
+
 require("lualine").setup({
   options = {
     theme = "auto",
@@ -50,6 +63,7 @@ require("lualine").setup({
         color = { fg = colors.orange },
       },
       { active_lsp, color = { fg = colors.white, gui = "bold" } },
+      { active_formatters, color = { fg = colors.white, gui = "bold" } },
       {
         "encoding",
         fmt = string.upper,
