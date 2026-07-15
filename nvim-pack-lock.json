@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-nvim": {
-      "rev": "012273e",
+      "rev": "fd128e3",
       "src": "https://github.com/RRethy/base16-nvim"
     },
     "blink.cmp": {
@@ -14,6 +14,10 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": [],
+    "crates.nvim": {
+      "rev": "6943578",
+      "src": "https://github.com/saecki/crates.nvim"
+    },
     "flash.nvim": {
       "rev": "b634694",
       "src": "https://github.com/folke/flash.nvim"

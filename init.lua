@@ -15,6 +15,7 @@ for _, module in ipairs({
   "plugins.copilot",
   "plugins.lsp",
   "plugins.rustaceanvim",
+  "plugins.crates",
   "plugins.formatting",
   "plugins.lazygit",
   "plugins.editor",
