@@ -27,6 +27,7 @@ conform.setup({
     json = { "prettierd", "prettier", stop_after_first = true },
     markdown = { "prettierd", "prettier", stop_after_first = true },
     html = { "prettierd", "prettier", stop_after_first = true },
+    toml = { "taplo" },
   },
   format_on_save = function(buffer)
     if autoformat_enabled(buffer) then

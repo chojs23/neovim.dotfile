@@ -19,7 +19,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "eb60cc7",
+      "rev": "31d6fb2",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "im-switch.nvim": {
@@ -91,7 +91,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-web-devicons": {
-      "rev": "09d1324",
+      "rev": "0ca28b6",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "plenary.nvim": {
