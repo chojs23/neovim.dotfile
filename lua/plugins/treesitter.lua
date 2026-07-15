@@ -44,6 +44,14 @@ end
 
 M.install_task = M.install_missing()
 
+-- Sticky header showing the current function/scope at the top of the window.
+require("treesitter-context").setup({
+  mode = "cursor",
+  max_lines = 3,
+})
+
+vim.keymap.set("n", "<leader>ut", "<cmd>TSContext toggle<cr>", { desc = "Toggle treesitter context" })
+
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
   callback = function(event)

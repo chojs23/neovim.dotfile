@@ -94,6 +94,10 @@
       "rev": "4916d659",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-treesitter-context": {
+      "rev": "b311b30",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
     "nvim-web-devicons": {
       "rev": "0ca28b6",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"

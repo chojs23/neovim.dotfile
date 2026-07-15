@@ -40,6 +40,7 @@ vim.pack.add({
   "https://github.com/zbirenbaum/copilot.lua",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/which-key.nvim",
   "https://github.com/lewis6991/gitsigns.nvim",
