@@ -43,7 +43,9 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/which-key.nvim",
-  "https://github.com/lewis6991/gitsigns.nvim",
+  -- gitsigns is added lazily from editor.lua on the first file open. Its own
+  -- plugin/gitsigns.lua eager-requires the module, so adding it here would pull
+  -- ~20ms of module loading onto the startup path.
   "https://github.com/mbbill/undotree",
   "https://github.com/petertriho/nvim-scrollbar",
   "https://github.com/kevinhwang91/nvim-hlslens",
