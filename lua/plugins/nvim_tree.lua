@@ -43,7 +43,9 @@ function StatDecorator:icons(node)
   if node.type ~= "file" then
     return nil
   end
-  local stat = vim.uv.fs_stat(node.absolute_path)
+  -- Nodes carry the stat the explorer already collected. Stat again only
+  -- when it is missing, to avoid syscalls for every node on each render.
+  local stat = node.fs_stat or vim.uv.fs_stat(node.absolute_path)
   if not stat then
     return nil
   end
@@ -52,13 +54,35 @@ function StatDecorator:icons(node)
   }
 end
 
--- The decorator only runs on render, so redraw the tree when its window
--- is resized to show or hide the stats immediately.
+-- The decorator only runs on render, so the tree must be redrawn when
+-- its window is resized across the threshold. Redraw only on that
+-- crossing, and with the renderer alone: api.tree.reload() rescans the
+-- filesystem and git status, which made incremental resizing
+-- (option+left/right) stutter.
+local stats_shown = nil
+
 vim.api.nvim_create_autocmd("WinResized", {
   group = vim.api.nvim_create_augroup("nvim_tree_stats_resize", { clear = true }),
   callback = function()
     local winid = api.tree.winid()
-    if winid and vim.tbl_contains(vim.v.event.windows or {}, winid) then
+    if not winid or not vim.tbl_contains(vim.v.event.windows or {}, winid) then
+      return
+    end
+
+    local show = vim.api.nvim_win_get_width(winid) >= stats_min_width
+    if show == stats_shown then
+      return
+    end
+    stats_shown = show
+
+    -- Internal but draw-only API. Falls back to the heavy reload if a
+    -- future nvim-tree update removes it.
+    local ok, explorer = pcall(function()
+      return require("nvim-tree.core").get_explorer()
+    end)
+    if ok and explorer and explorer.renderer then
+      explorer.renderer:draw()
+    else
       api.tree.reload()
     end
   end,
