@@ -50,8 +50,8 @@ local function ensure()
 
   require("telescope").setup({
     defaults = {
-      prompt_prefix = " ",
-      selection_caret = " ",
+      prompt_prefix = "> ",
+      selection_caret = "> ",
       get_selection_window = function()
         local windows = vim.api.nvim_list_wins()
         table.insert(windows, 1, vim.api.nvim_get_current_win())
@@ -125,7 +125,8 @@ end, { desc = "Grep root directory" })
 map("n", "<leader>:", pick("command_history"), { desc = "Command history" })
 map("n", "<leader><space>", find_files, { desc = "Find files in root directory" })
 
-map("n", "<leader>fb", pick("buffers", { sort_mru = true, sort_lastused = true, ignore_current_buffer = true }), { desc = "Buffers" })
+map("n", "<leader>fb", pick("buffers", { sort_mru = true, sort_lastused = true, ignore_current_buffer = true }),
+  { desc = "Buffers" })
 map("n", "<leader>fB", pick("buffers"), { desc = "All buffers" })
 map("n", "<leader>fc", function()
   ensure()
