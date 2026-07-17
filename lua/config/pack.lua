@@ -41,6 +41,7 @@ vim.pack.add({
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  "https://github.com/stevearc/aerial.nvim",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/which-key.nvim",
   -- gitsigns is added lazily from editor.lua on the first file open. Its own
