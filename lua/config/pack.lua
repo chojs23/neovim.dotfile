@@ -59,3 +59,15 @@ vim.pack.add({
   load = false,
   confirm = false,
 })
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+  local names = {}
+
+  for _, plugin in ipairs(vim.pack.get(nil, { info = false })) do
+    if plugin.active then
+      names[#names + 1] = plugin.spec.name
+    end
+  end
+
+  vim.pack.update(names)
+end, { desc = "Review and update active plugins" })
