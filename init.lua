@@ -9,6 +9,7 @@ for _, module in ipairs({
   "plugins.snacks",
   "plugins.nvim_tree",
   "plugins.treesitter",
+  "plugins.render_markdown",
   "plugins.aerial",
   "plugins.telescope",
   "plugins.mason",

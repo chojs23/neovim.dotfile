@@ -229,6 +229,10 @@
       "rev": "87c857a56b7703f976d3a5ef15967d80508df6e6",
       "src": "https://github.com/andweeb/presence.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "f422cb5",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "rustaceanvim": {
       "rev": "5a3a4158857ee1f7ec839b6ddd87cc0083a19c5f",
       "src": "https://github.com/mrcjkb/rustaceanvim",
