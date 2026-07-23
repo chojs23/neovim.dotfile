@@ -2,6 +2,47 @@ local api = require("nvim-tree.api")
 
 -- Shows "rw-r--r-- 1.2K" right-aligned for each file
 local stats_min_width = 38
+local home = vim.fs.normalize(assert(vim.uv.os_homedir(), "home directory unavailable"))
+local home_git_disabled = false
+
+local function home_git_ignores(path)
+  path = vim.fs.normalize(path)
+  if path == home or not vim.startswith(path, home .. "/") then
+    return false
+  end
+
+  local result = vim.system({ "git", "-C", home, "check-ignore", "-q", "--", path }):wait()
+  return result.code == 0
+end
+
+local function disable_home_git(git_root)
+  return home_git_disabled and vim.fs.normalize(git_root) == home
+end
+
+local function set_root(path)
+  local disable = home_git_ignores(path)
+  if disable == home_git_disabled then
+    return
+  end
+
+  home_git_disabled = disable
+
+  -- nvim-tree caches Git roots. Clear the cache when the requested tree
+  -- switches between home-tracked and home-ignored paths.
+  require("nvim-tree.git").purge_state()
+end
+
+-- Directory arguments are hijacked before the explorer keymaps run, so apply
+-- the same Git policy before nvim-tree handles their buffer event.
+vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("nvim_tree_root_policy", { clear = true }),
+  callback = function(event)
+    local path = vim.api.nvim_buf_get_name(event.buf)
+    if vim.fn.isdirectory(path) == 1 then
+      set_root(path)
+    end
+  end,
+})
 
 local StatDecorator = api.Decorator:extend()
 
@@ -115,6 +156,7 @@ require("nvim-tree").setup({
   },
   git = {
     enable = true,
+    disable_for_dirs = disable_home_git,
     show_on_dirs = true,
   },
   filters = {
@@ -122,3 +164,7 @@ require("nvim-tree").setup({
     git_ignored = false,
   },
 })
+
+return {
+  set_root = set_root,
+}

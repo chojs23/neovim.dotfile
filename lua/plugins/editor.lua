@@ -1,12 +1,24 @@
 local function project_root()
-  return vim.fs.root(0, { ".git", "package.json", "Cargo.toml", "go.mod", "pyproject.toml" }) or vim.uv.cwd()
+  local markers = { ".git", "package.json", "Cargo.toml", "go.mod", "pyproject.toml" }
+  return vim.fs.root(0, { markers }) or vim.uv.cwd()
+end
+
+local function toggle_tree(path)
+  local api = require("nvim-tree.api")
+  local winid = api.tree.winid()
+  if winid then
+    api.tree.resize({ absolute = vim.api.nvim_win_get_width(winid) })
+  else
+    require("plugins.nvim_tree").set_root(path)
+  end
+  api.tree.toggle({ path = path, find_file = true })
 end
 
 vim.keymap.set("n", "<leader>e", function()
-  require("nvim-tree.api").tree.toggle({ path = project_root(), find_file = true })
+  toggle_tree(project_root())
 end, { desc = "Explorer root directory" })
 vim.keymap.set("n", "<leader>E", function()
-  require("nvim-tree.api").tree.toggle({ path = vim.uv.cwd(), find_file = true })
+  toggle_tree(vim.uv.cwd())
 end, { desc = "Explorer cwd" })
 
 require("flash").setup({
