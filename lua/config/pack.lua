@@ -14,6 +14,12 @@ vim.api.nvim_create_autocmd("PackChanged", {
     if ev.data.spec.name == "im-switch.nvim" and ev.data.kind ~= "delete" then
       vim.system({ "make", "build" }, { cwd = ev.data.path }):wait()
     end
+
+    -- Install the bundled preview server after every plugin code change.
+    if ev.data.spec.name == "markdown-preview.nvim" and ev.data.kind ~= "delete" then
+      vim.cmd.packadd("markdown-preview.nvim")
+      vim.fn["mkdp#util#install_sync"](true)
+    end
   end,
 })
 
@@ -45,7 +51,7 @@ vim.pack.add({
   "https://github.com/stevearc/aerial.nvim",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/which-key.nvim",
-  -- gitsigns is added lazily from editor.lua on the first file open. Its own
+  -- gitsigns is added lazily from git.lua on the first file open. Its own
   -- plugin/gitsigns.lua eager-requires the module, so adding it here would pull
   -- ~20ms of module loading onto the startup path.
   "https://github.com/mbbill/undotree",
@@ -55,6 +61,8 @@ vim.pack.add({
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/mrjones2014/smart-splits.nvim",
   "https://github.com/chojs23/im-switch.nvim",
+  "https://github.com/vyfor/cord.nvim",
+  "https://github.com/iamcco/markdown-preview.nvim",
 }, {
   load = false,
   confirm = false,

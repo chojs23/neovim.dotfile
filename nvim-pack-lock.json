@@ -57,6 +57,10 @@
       "rev": "2a849bc",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
+    "cord.nvim": {
+      "rev": "8f08161",
+      "src": "https://github.com/vyfor/cord.nvim"
+    },
     "crates.nvim": {
       "rev": "6943578",
       "src": "https://github.com/saecki/crates.nvim"
@@ -92,6 +96,10 @@
     "lualine.nvim": {
       "rev": "221ce6b",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "markdown-preview.nvim": {
+      "rev": "a923f5f",
+      "src": "https://github.com/iamcco/markdown-preview.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "7adc933",
